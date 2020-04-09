@@ -5,6 +5,7 @@ int main () {
 	
 	printf(" Bienvenido a DOMINGUEROS\n");
 	
+	do{
 	printf("\n MENU \n");
 	printf("\n (1)-Iniciar sesion \n");
 	printf("\n (2)-Registrarse \n");
@@ -15,6 +16,8 @@ int main () {
 	printf("\n Seleccinar opcion tecleandola en el ordenador el número asociado a la opcion a la que se desea acceder.\n");
 	
 	scanf("%d", &a);
+	
+	}while( a != 1 || a != 2 || a != 3 || a != 4 || a != 5 );
 	
 	switch(a) {
 		case 1:
@@ -31,6 +34,7 @@ int main () {
 			break;
 		case 5:
 			printf("Ha seleccionado la opcion de SALIR\n");
+			printf("Hasta pronto");
 			break;
 		default:
 			printf("Se ha introducido mal el numero\n");
