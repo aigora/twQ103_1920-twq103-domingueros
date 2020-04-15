@@ -33,40 +33,40 @@ int main () {
 
 	} while ( opcion != 1 && opcion != 2 && opcion != 3 && opcion != 4 && opcion != 5 );
 	
-	switch(opcion) {
+	switch (opcion) {
 		case 1:
-			printf("Ha seleccionado la opcion de INICIAR SESION\n");
+			printf ("Ha seleccionado la opcion de INICIAR SESION\n");
 			break;
 		case 2:
-			printf("Ha seleccionado la opcion de REGISTRARSE\n");
-			
+			printf ("Ha seleccionado la opcion de REGISTRARSE\n");
+			printf ("\n");
 			printf ("Complete con sus datos\n");
 			
 			do {
 				
 			while(cuentas<=100){
-				printf ("Nombre:\t");
-				       gets (usuario[cuentas+1].nombre);
+				printf ("Nombre del usuario:\t");
+				       gets (usuario[cuentas].nombre);
 					
 				printf ("Apellidos:\t");
-				       gets (usuario[cuentas+1].apellidos);
+				       gets (usuario[cuentas].apellidos);
 					
 				printf ("Edad:\t");
-				       scanf ("%d", &usuario[cuentas+1].edad);
+				       scanf ("%d", &usuario[cuentas].edad);
 					
 				printf ("Correo:\t");
-				       scanf ("%s", usuario[cuentas+1].email);
+				       scanf ("%s", usuario[cuentas].email);
 				
 				printf ("Lugar de residencia:\t");
-				       gets (usuario[cuentas+1].lugar);
+				       gets (usuario[cuentas].lugar);
 			}	
 					
 			if (){
 				printf ("Debes completar con tus datos todos los campos");
 			} else {
 				printf("Cuenta creada con exito");
+				printf("Ya somos %d domingueros!", cuentas+1);
 				cuentas++;
-				printf("Ya somos %d domingueros!", &cuentas);
 			}
 					
 			} while ()
