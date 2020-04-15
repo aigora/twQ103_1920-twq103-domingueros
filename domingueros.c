@@ -1,7 +1,5 @@
 #include <stdio.h>
 
-#define INTRO '\r'
-
 struct datos{
 	char nombre[30];
 	char apellidos[100];
@@ -61,7 +59,7 @@ int main () {
 			} while (usuarios[cuentas].nombre[0] == '\0' || usuarios[cuentas].apellidos[0] == '\0');
 			
 			do{
-				printf ("\nNombre de usuario o apodo: ");
+				printf ("\nNombre de usuario o apodo:\t");
 				scanf ("%s", usuarios[cuentas].apodo);
 				
 				longitud_ap = strlen(usuarios[cuentas].apodo);
@@ -72,27 +70,27 @@ int main () {
 				} else if (longitud_ap >8){
 					printf("Tu apodo es demasiado largo. Maximo 8 caracteres\n");
 					
-				} else { // HABRÁ QUE COMPROBARLO MÁS ADELANTE
+				} else { // AQUI COMPROBAMOS SI EL APODO INTRODUCIDO COINCIDE CON ALGUNO YA REGISTRADO
 					for (i=0; i<cuentas; i++){      	
 						if (usuarios[i].apodo == usuarios[cuentas].apodo){
 							printf ("Este nombre ya ha sido escogido. Intentelo de nuevo\n");
 						}
 					}	
-				} //AQUI DEBERIAMOS COMPROBAMOS SI EL APODO INTRODUCIDO COINCIDE CON ALGUNO YA REGISTRADO
+				} // HABRÁ QUE COMPROBARLO MÁS ADELANTE
 				
 			} while ( usuarios[cuentas].apodo[0] == '\0' || longitud_ap >8);		
 					
-			printf ("Edad:\t");
+			printf ("\nEdad:\t");
 			scanf ("%d", &usuarios[cuentas].edad);
 			
 			if (usuarios[cuentas].edad <18){	
 			}
 			
-				printf ("Correo:\t");
+				printf ("\nCorreo:\t");
 				fflush (stdin);
 				scanf ("%s", usuarios[cuentas].email);
 				
-				printf ("Lugar de residencia:\t");
+				printf ("\nLugar de residencia:\t");
 				fflush (stdin);
 				gets (usuarios[cuentas].lugar);
 		
