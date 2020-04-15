@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 
 struct datos{
 	char nombre[30];
