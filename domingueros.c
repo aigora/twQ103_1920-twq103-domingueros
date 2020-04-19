@@ -11,14 +11,22 @@ struct datos{
 	char email[100];
 	char lugar[30];
 };
+struct TActividad{
+	char zona[100];
+	char actividad[100];
+	int precio;
+};
 	
 int main () {
 	struct datos usuarios[100];
+	struct TActividad actividad[100];
 	int opcion, i, j;
 	int no_cuenta = 0, no_email = 0, ayuda;
-	bool punto = false, arroba = false, es_ cuenta = false, diferente = false;
+	bool punto = false, arroba = false, es_cuenta = false, diferente = false;
 	int cuentas = 0, longitud_ap = 0, longitud_con = 0;
 	char contrasena[20], apodo[20], email[100];
+	int nActividad=0;
+	FILE *pfichero;
 	
 	printf(" Bienvenido a DOMINGUEROS\n");
 	
@@ -97,7 +105,7 @@ int main () {
 							break;
 					}
 				}
-			} while (es_cuenta = false && no_cuenta<3 || no_email=5 || ayuda = 1);
+			} while (es_cuenta == false && no_cuenta<3 || no_email==5 || ayuda == 1);
 			
 			no_email = 0;
 			no_cuenta = 0;
@@ -153,7 +161,7 @@ int main () {
 						}
 					} // HABRÁ QUE COMPROBARLO MÁS A DELANTE	
 				}
-			} while ( usuarios[cuentas].apodo[0] == '\0' || longitud_ap >8 || diferente = false);
+			} while ( usuarios[cuentas].apodo[0] == '\0' || longitud_ap >8 || diferente == false);
 			
 			do{
 				printf ("\nContrasena:\n");
@@ -204,6 +212,20 @@ int main () {
 			break;
 		case 4:
 			printf("Ha seleccionado la opcion de TODAS LAS ACTIVIDADES\n");
+			pfichero=fopen("actividades.txt","r");
+	
+			if(pfichero== NULL){
+				printf("No se encuentra el fichero\n");
+				return 0;
+			}
+		
+			while (fscanf(pfichero, "%s %s %d",actividad[nActividad].zona,
+			actividad[nActividad].actividad,&actividad[nActividad].precio) != EOF){
+				printf("%s %s %d euros\n",actividad[nActividad].zona, actividad[nActividad].actividad,
+				actividad[nActividad].precio);
+				nActividad++;
+			}
+			fclose(pfichero);
 			break;
 		case 5:
 			printf("Ha seleccionado la opcion de INFORMACION SOBRE LA APLICACION\n");
