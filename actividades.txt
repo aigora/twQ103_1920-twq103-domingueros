@@ -24,3 +24,33 @@ Noroeste Museo_del_Esqui 0
 Noreste Museo_Arqueologico_Regional_de_la_Comunidad_de_Madrid 2
 Noreste Museo_de_los_Sentidos 0
 Noreste Senderismo 0
+Madridcentro Plaza_Mayor
+Madridcentro Plaza_del_Sol
+Madridcentro Gran_Via
+Madridcentro Palacio_Real
+Madridcentro Catedral_de_la_Almudena 
+Madridcentro Plaza_Espanna
+Madridcentro Plaza_Cibeles
+Madridcentro Paseo_por_los_barrios_de_Madrid
+Madridcentro Estacion_Atocha
+Madridcentro Puerta_de_Alcala
+Madridcentro Santiago Bernabeu
+Madridcentro Templo_de_Debod
+Madridcentro Las_Cuatro_Torres_de_Madrid
+Madridcentro Espectaculo_flamenco
+Madridcentro Parque_del_Retiro
+Madridcentro Casa_de_Campo
+Madridcentro Real_jardin_botanico
+Madridcentro Campo_del_Moro
+Madridcentro Jardines_de_Sabatini
+Madridcentro Parque_El_Capricho
+Madridcentro Museo_del_Prado
+Madridcentro Museo_Thyssen
+Madridcentro Museo_Reina_Sofia
+Madridcentro Museo_de_America_de_Madrid
+Madridcentro Museo_Arqueologico_Nacional
+Madridcentro Museo_de_Arte_Contemporaneo
+Madridcentro El_Rastro
+Madridcentro Mercado_de_San_Miguel
+Madridcentro Mercado_Chamartin
+Madridcentro Los_hippies_de_Goya
