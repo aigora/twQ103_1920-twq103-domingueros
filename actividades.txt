@@ -1,29 +1,29 @@
-Madridsur Termas_de_Grinon 35 
-Madridsur Rutas_por_la_Sagra 0
-Madridsur Airsoft_la_Atalaya 32
-Madridsur Parque_Warner_Madrid 32
-Madridsur Pista_cubierta_de_nieve 29
-Madridsur Centro_comercial_Xanadú 0
-Madridsur Trepopark:Rocodromo 13
-Madridsur Trepopark:Laser_Combat 10
-Madridsur Trepopark:Campo_de_futbol_playa 40
-Madridsur Trepopark:Zona_saltarin 3
-Noroeste Senderismo 0
-Noroeste Ornitologia,Sierra_de_Rincon 0
-Noroeste Windsurf 110
-Noroeste PaddleSurf 20
-Noroeste Kayak 30 
-Noroeste Piragua 20
-Noroeste Agroturismo 20
-Noroeste Hipica 20
-Noroeste Esqui/snowboard 25
-Noroeste Escalada 27
-Noroeste Tirolinas 22
-Noroeste Museo_Lunar:Centro_del_Espacio_y_la_Ciencia 3
-Noroeste Museo_del_Esqui 0
-Noreste Museo_Arqueologico_Regional_de_la_Comunidad_de_Madrid 2
-Noreste Museo_de_los_Sentidos 0
-Noreste Senderismo 0
+Madridsur Termas_de_Grinon 
+Madridsur Rutas_por_la_Sagra 
+Madridsur Airsoft_la_Atalaya 
+Madridsur Parque_Warner_Madrid 
+Madridsur Pista_cubierta_de_nieve 
+Madridsur Centro_comercial_Xanadú
+Madridsur Trepopark_Rocodromo 
+Madridsur Trepopark_Laser_Combat 
+Madridsur Trepopark_Campo_de_futbol_playa 
+Madridsur Trepopark_Zona_saltarin 
+Noroeste Senderismo 
+Noroeste Ornitologia_Sierra_de_Rincon
+Noroeste Windsurf 
+Noroeste PaddleSurf 
+Noroeste Kayak 
+Noroeste Piragua 
+Noroeste Agroturismo 
+Noroeste Hipica 
+Noroeste Esqui/snowboard
+Noroeste Escalada 
+Noroeste Tirolinas 
+Noroeste Museo_Lunar:Centro_del_Espacio_y_la_Ciencia 
+Noroeste Museo_del_Esqui 
+Noreste Museo_Arqueologico_Regional_de_la_Comunidad_de_Madrid 
+Noreste Museo_de_los_Sentidos 
+Noreste Senderismo 
 Madridcentro Plaza_Mayor
 Madridcentro Plaza_del_Sol
 Madridcentro Gran_Via
