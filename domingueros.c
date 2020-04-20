@@ -151,17 +151,17 @@ int main () {
 				} else if (longitud_ap >8){
 					printf("Tu apodo es demasiado largo. Maximo 8 caracteres\n");
 					
-				} else { // AQUI COMPROBAMOS SI EL APODO INTRODUCIDO COINCIDE CON ALGUNO YA REGISTRADO
-					for (i=0; i<cuentas; i++){      	
-						if (usuarios[i].apodo == usuarios[cuentas].apodo){
-							diferente = false;
-							printf ("Este nombre ya ha sido escogido. Intentelo de nuevo\n");
-						} else{
-							diferente = true;
-						}
-					} // HABRÁ QUE COMPROBARLO MÁS A DELANTE	
-				}
-			} while ( usuarios[cuentas].apodo[0] == '\0' || longitud_ap >8 || diferente == false);
+				} // else { // AQUI COMPROBAMOS SI EL APODO INTRODUCIDO COINCIDE CON ALGUNO YA REGISTRADO
+					//for (i=0; i<cuentas; i++){      	
+						//if (usuarios[i].apodo == usuarios[cuentas].apodo){
+							//diferente = false;
+							//printf ("Este nombre ya ha sido escogido. Intentelo de nuevo\n");
+						//} else{
+							//diferente = true;
+						//}
+					//} // HABRÁ QUE COMPROBARLO MÁS A DELANTE	
+				//} || diferente == false
+			} while ( usuarios[cuentas].apodo[0] == '\0' || longitud_ap >8);
 			
 			do{
 				printf ("\nContrasena:\n");
