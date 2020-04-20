@@ -148,7 +148,8 @@ int main () {
 				if (usuarios[cuentas].apodo[0] == '\0'){ // ESTE CONDICIONAL NO ME LO LEE 
 					printf ("\nERROR. Debe completar adecuadamente con sus datos todos los campos\n");
 					
-				} else if (longitud_ap >8){
+				}
+				if (longitud_ap >8){
 					printf("Tu apodo es demasiado largo. Maximo 8 caracteres\n");
 					
 				} // else { // AQUI COMPROBAMOS SI EL APODO INTRODUCIDO COINCIDE CON ALGUNO YA REGISTRADO
