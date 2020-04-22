@@ -14,7 +14,6 @@ struct datos{
 struct TActividad{
 	char zona[100];
 	char actividad[100];
-	int precio;
 };
 	
 int main () {
@@ -220,10 +219,9 @@ int main () {
 				return 0;
 			}
 		
-			while (fscanf(pfichero, "%s %s %d",actividad[nActividad].zona,
-			actividad[nActividad].actividad,&actividad[nActividad].precio) != EOF){
-				printf("%s %s %d euros\n",actividad[nActividad].zona, actividad[nActividad].actividad,
-				actividad[nActividad].precio);
+			while (fscanf(pfichero, "%s %s ",actividad[nActividad].zona,
+			actividad[nActividad].actividad != EOF){
+				printf("%s %s\n",actividad[nActividad].zona, actividad[nActividad].actividad);
 				nActividad++;
 			}
 			fclose(pfichero);
