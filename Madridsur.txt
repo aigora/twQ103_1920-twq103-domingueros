@@ -1,0 +1,10 @@
+Madridsur Termas_de_Grinon 35 
+Madridsur Rutas_por_la_Sagra 0
+Madridsur Airsoft_la_Atalaya 32
+Madridsur Parque_Warner_Madrid 32
+Madridsur Pista_cubierta_de_nieve 29
+Madridsur Centro_comercial_Xanadú 0
+Madridsur Trepopark:Rocodromo 13
+Madridsur Trepopark:Laser_Combat 10
+Madridsur Trepopark:Campo_de_futbol_playa 40
+Madridsur Trepopark:Zona_saltarin 3
