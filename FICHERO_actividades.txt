@@ -224,22 +224,22 @@ alrededores del estanque para tomarte algo o incluso comer. Tambien es buena opc
 de hacer ejercicio; desde correr o montar en bici o en patines hasta acceder a las 
 instalaciones del Centro Deportivo Municipal La Chopera para practicar algun deporte.
 
-JARDINES: en sus 118 hectareas, encontramos varios jardines (Jardin de Vivaces, 
+  JARDINES: en sus 118 hectareas, encontramos varios jardines (Jardin de Vivaces, 
 Jardines del Arquitecto Herrero Palacios, Rosaleda, Parterre Frances, ), un 
 estanque, lagos artificiales, y muchas fuentes.
 
-EL PALACIO DE CRISTAL: se ubica muy cerca de un lago artificial. 
+  EL PALACIO DE CRISTAL: se ubica muy cerca de un lago artificial. 
 Este edificio es de cristal, como su propio nombre indica, y se trata de un lugar
 precioso que alberga muchas exposiciones artisticas temporales, aunque en un inicio
 se utilizo como invernadero.
 
-PASEO DE LA ARGENTINA: comunmente llamado Paseo de las Estatuas, es un paseo en 
+  PASEO DE LA ARGENTINA: comunmente llamado Paseo de las Estatuas, es un paseo en 
 el que encontraremos estatuas dedicadas a todos los monarcas de España.
 
-PABELLON DE LOS JARDINES DE CECILIO RODRIGUEZ: es un pequeño jardin en donde podemos
+  PABELLON DE LOS JARDINES DE CECILIO RODRIGUEZ: es un pequeño jardin en donde podemos
 encontrar pavos reales. Cerca de ahi podemos ver más animales como patos o ardillas.
 
-PALACIO DE VELAZQUEZ: es un edificio museo dedicado a exposiciones temporales.
+  PALACIO DE VELAZQUEZ: es un edificio museo dedicado a exposiciones temporales.
 Entrada gratuita
 Horarios:
   De noviembre a febrero: 10:00 - 18:00 h
@@ -248,18 +248,18 @@ Horarios:
   Días de cierre: 1 y 6 enero, 1 de mayo y 25 diciembre.
   24 y 31 diciembre: 10:00 - 17:00 h
 
-MONUMENTO DE ALFONSO XII: muy cerca del gran estanque artificial. Se trata de un
+  MONUMENTO DE ALFONSO XII: muy cerca del gran estanque artificial. Se trata de un
 lugar iconico, donde siempre encontraras a mucha gente sentada, relajandose y a 
 musicos interpretando canciones que cobran especial relevancia debido a la 
 acustica y la belleza del lugar. 
 Tambien podras encontrar las estatuas de Benito Perez Glados y de Ramon y 
 Cajal entre otras.
 
-OBSERVATORIO CENTRAL METEOROLOGICO: en el extremo suroriental del parque del
+  OBSERVATORIO CENTRAL METEOROLOGICO: en el extremo suroriental del parque del
 Retiro se encuentra este edificio cuyas instalaciones estan destinadas a la
 observacion y al estudio de los fenomenos meteorologicos.
 
-ESTANQUE DE BARCAS: , ha acogido muchos espectaculos acuaticos como batallas
+  ESTANQUE DE BARCAS: , ha acogido muchos espectaculos acuaticos como batallas
 navales e incluso obras de teatro. De hecho, en el centro anteriormente tenía
 una pequenya isla que se utilizaba como escenario. Actualmente se utiliza como
 lugar para remar en barca y para hacer piragüismo. En el césped de los 
@@ -303,7 +303,7 @@ Web: infocasacampo@madrid.es
 Acceso gratuito
 Horarios: Todo el anyo
 
-TELEFERICO: medio de transporte para ir hasta el Parque del Oeste. Conecta Casa
+  TELEFERICO: medio de transporte para ir hasta el Parque del Oeste. Conecta Casa
 de Campo con el Paseo del Pintor Rosales. Las vistas son fabulosas y en la cabina
 te explicaran la historia de Madrid.
 Tlf.: 914 068 810
@@ -314,14 +314,14 @@ Precios:
   Ninyos de 4 a 12 anyos y adultos mayores de 65 años: 5 Euros (ida y vuelta) / 4 Euros (solo ida)
   Ninyos menores de 4 anyos: gratis
 
-LAGO: Paseo del Embarcadero, 8,28011
+  LAGO: Paseo del Embarcadero, 8,28011
 Alquiler de barcas
 Horarios:
   8:30 hasta la puesta de sol
 Precios:
   Sabados, Domigos y Festivos: 7,50 Euros (45 minutos); Lunes a Viernes: 5,80 Euros (45 minutos)
 
-VIVERO DE PLANTAS: Paseo Azul, 2, 28011 Madrid
+  VIVERO DE PLANTAS: Paseo Azul, 2, 28011 Madrid
 Tlf.:  91 480 19 57
 Horarios:
   Invierno de 8 a 15 horas
@@ -330,7 +330,7 @@ GRATUITO
 
 Muy cerca podemos disfrutar de:
 
-ZOO:  Casa de Campo, s/n, 28011 Madrid
+  ZOO:  Casa de Campo, s/n, 28011 Madrid
 Tlf.: 911 54 74 79
 Web: https://www.zoomadrid.com/ 
 Horarios(web)
@@ -339,7 +339,7 @@ Precios:
   Reducida: 18,15 Euros (online), 19,50 Euros (taquilla)
   Menores de 3 anyos: gratis
 
-PARQUE DE ATRACCIONES: Casa de Campo, s/n, 28011 Madrid
+  PARQUE DE ATRACCIONES: Casa de Campo, s/n, 28011 Madrid
 Tlf.: 912 000 795
 Web: https://www.parquedeatracciones.es/
 Horarios(web)
@@ -361,6 +361,7 @@ Madrid, con el Palacio Real asomandose mas alla de un extenso tapiz verde,
 rodeado de fuentes monumentales dentro de un amplio y sombreado jardin romantico.
 Los jardines tambien contienen dos fuentes neoclasicas: la Fuente de los 
 Tritones y la del Palacio de las Conchas.
+
 Paseo Virgen del Puerto, s/n 28005.
 Tlf.: 914 548700
 GRATUITO
@@ -374,6 +375,7 @@ Son parte del Palacio Real de Madrid,es un sitio tranquilo y perfecto para
 descansar un rato y reponerse de la caminata del dia. Se encuentran situados 
 frente a la fachada norte del Palacio Real de Madrid, entre la calle Bailen 
 y la cuesta de San Vicente.
+
 Tlf.: 915 588790
 GRATUITO
 Horarios:
@@ -382,7 +384,13 @@ Horarios:
 
 PARQUE 'EL CAPRICHO'
 
-Paseo de la Alameda de Osuna, 25, 28042.
+Es uno de los parques mas bellos y, paradojicamente, de los mas desconocidos 
+(sobre todo su bunker de la Guerra Civil). El parque alberga una importante 
+riqueza botanica, escultorica y artistica. Contiene templetes, ermitas, fuentes,
+plazoletas y el palacio de los duques, que proximamente acogera un espacio 
+interactivo, con proyecciones 3D, salas de conferencias y exposiciones permanentes.
+
+Direccion: Paseo de la Alameda de Osuna, 25, 28042.
 Tlf.: 915 880114
 GRATUITO
 Horarios:
@@ -406,10 +414,10 @@ Horarios:
   Lunes a Sabados de 10:00 a 20:00
   Domingos y Festivos de 10:00 a 19:00
 Precios:
-  General: 15€.
-  Reducida: 7,50€.
-  Gratis para menores de 18 años.
-  Reservar tour desde 33,00 €
+  General: 15 Euros
+  Reducida: 7,50 Euros
+  Gratis para menores de 18 anyos.
+  Reservar tour desde 33,00 Euros
 
 MUSEO REINA SOFIA
 
@@ -418,54 +426,57 @@ Tlf.: 917 741000
 Horarios:
   Lunes a Sabados de 10:00 a 21:00h
   Domingo de 14:30 a 19:00h (puede variar).
-Antes de visitar el museo, recomendamos consultar qué secciones cierran el domingo y qué días cierran por festivos.
-  General: 10€
-  Estudiantes menores de 25 años, carnet joven y menores de 18 años: gratuita
-  Reservar tour desde 23,00€
+Antes de visitar el museo, recomendamos consultar que secciones cierran 
+el domingo y que dias cierran por festivos.
+Precios:
+  General: 10 Euros
+  Estudiantes menores de 25 anyos, carnet joven y menores de 18 anyos: gratuita
+  Reservar tour desde 23,00 Euros
 
 MUSEO THYSSEN-BORNEMISZA
 
 Paseo del Prado 8, 28014.
-TLF.: 902 760511
-HORARIOS:
+Tlf.: 902 760511
+Horarios:
   De MARTES a DOMINGO de 10:00h a 19:00h. 
   LUNES de 12:00h a 16:00h
-PRECIOS:
-  General: 12€.
-  Reducida: 8€. 
+Precios:
+  General: 12 Euros
+  Reducida: 8 Euros 
   Gratuita lunes de 12:00h a 16:00h.
-  Reservar tour desde 75,00€
+  Reservar tour desde 75,00 Euros
 
 MUSEO DE AMERICA DE MADRID
 
-Av. de los Reyes Católicos, 6, 28040.
-TLF.: 915 492641
-HORARIOS:
-MARTES y MIERCOLES de 9:30 a 15:00 horas
-JUEVES de 9:30 a 19:00 horas
-DOMINGOS y FESTIVOS de 10:00 a 15:00 horas.
-PRECIOS:
-General: 3€.
-Reducida: 1,50€.
-Entrada gratuita: domingos, 18 de abril, 18 de mayo, 12 de octubre y 6 de diciembre.
+Av. de los Reyes Catolicos, 6, 28040.
+Tlf.: 915 492641
+Horarios:
+  MARTES y MIERCOLES de 9:30 a 15:00 horas
+  JUEVES de 9:30 a 19:00 horas
+  DOMINGOS y FESTIVOS de 10:00 a 15:00 horas.
+Precios:
+  General: 3 Euros
+  Reducida: 1,50 Euros
+  Entrada gratuita: domingos, 18 de abril, 18 de mayo, 12 de octubre y 6 de diciembre.
 
 MUSEO ARQUEOLOGICO NACIONAL
 
 Calle Serrano 13, 28001.
 Tlf.: 915 777912
 Horarios:
-De Martes a Sabados de 9:30 a 20:00 horas. 
-Domingos y Festivos de 9:30 a 15:00 horas.
-General: 3€.
-Reducida: 1,50€.
-Gratis sábados desde las 14:00h y domingos por la mañana.
+  De Martes a Sabados de 9:30 a 20:00 horas. 
+  Domingos y Festivos de 9:30 a 15:00 horas.
+Precios:
+  General: 3 Euros
+  Reducida: 1,50 Euros
+  Gratis sabados desde las 14:00h y domingos por la manyana.
 
 MUSEO DE ARTE CONTEMPORANEO
 
 Centro Cultural del Conde Duque, calle Conde Duque 9 y 11, 28015.
 Horarios:
-De Martes a Sabados de 10:00 a 14:00 y de 17:30 a 21:00 horas
-Domingos y Festivos de 10.30 a 14.00 horas. 
+  De Martes a Sabados de 10:00 a 14:00 y de 17:30 a 21:00 horas
+  Domingos y Festivos de 10.30 a 14.00 horas. 
 GRATUITO
 
 
@@ -478,51 +489,56 @@ MERCADOS
 EL RASTRO
 
 Calle de la Ribera de Curtidores, s/n, 28005.
-Horarios:
-Domingos y festivos de 09:00h a 15:00h.
+Horarios: Domingos y festivos de 09:00h a 15:00h.
 
-Calle de San Cayetano: se le conoce también como la calle de los pintores,
-y se conoce por ser el escenario de puestos donde podrás encontrar ilustraciones,
-cuadros de todo tipo o artículos para la pintura y el dibujo.
-Calle de Rodas: aquí hay revistas, cromos antiguos, estampas, coleccionables y 
-juegos de cartas. Es frecuente ver a niños intercambiando.
-La plaza del General Vara del Rey: aquí hay un sinfín de puestos de ropa de 
+Calle de San Cayetano: se le conoce tambien como la calle de los pintores,
+y se conoce por ser el escenario de puestos donde podras encontrar ilustraciones,
+cuadros de todo tipo o articulos para la pintura y el dibujo.
+
+Calle de Rodas: aqui hay revistas, cromos antiguos, estampas, coleccionables y 
+juegos de cartas. Es frecuente ver a ninyos intercambiando.
+
+La plaza del General Vara del Rey: aqui hay un sinfin de puestos de ropa de 
 segunda mano.
-Calle del Carnero: se trata de la calle con más puestos de libros de segunda mano,
-aunque también los hay nuevos.
+
+Calle del Carnero: se trata de la calle con mas puestos de libros de segunda mano,
+aunque tambien los hay nuevos.
+
 Plaza del Cascorro: es un buen lugar para encontrar ropa ya pasada de moda, 
-underground, pero llena de valor para los más nostálgicos.
-La Ronda de Toledo: se vende música de todo tipo. Si disfrutas de los vinilos y los 
+underground, pero llena de valor para los mas nostalgicos.
+
+La Ronda de Toledo: se vende musica de todo tipo. Si disfrutas de los vinilos y los 
 discos, ves con tiempo.
 
 HIPPIES DE GOYA
 
-Plaza de San Miguel, s/n 28005.
+Av. de Felipe II, 1, 28009.
 Tlf.:991 5424936
-Horarios:
-De Domingo a Jueves de 10:00h a 00:00h.
-Viernes, Sabados y Festivos de 10:00h a 1:00h.
-Oferta gastronómica, probando sus platillos y tapas. Valor histórico del edificio.
+Horarios: De lunes a sabados de 10:00 a 21:30 h.
+No es el mas conocido de Madrid, pero si uno de los mas transitados y de los mas 
+antiguos. Se ubica en pleno barrio de Salamanca, pero esto no quiere decir que vayas 
+a encontrar precios elevados, mas bien todo lo contrario: hay absolutas gangas.
 
 MERCADO DE SAN MIGUEL
 
 Plaza de San Miguel, s/n 28005.
 Tlf.:991 5424936
 Horarios:
-De Domingo a Jueves de 10:00h a 00:00h.
-Viernes, Sabados y Festivos de 10:00h a 1:00h.
-Oferta gastronómica, probando sus platillos y tapas. Valor histórico del edificio.
+  De Domingo a Jueves de 10:00h a 00:00h.
+  Viernes, Sabados y Festivos de 10:00h a 1:00h.
+Oferta gastronomica, probando sus platillos y tapas. Hay que destacar
+el gran valor historico del edificio.
 
 MERCADO CHAMARTIN
 
 Calle Bolivia, 9, 28016.
 Tlf.:914 575350
 Horarios:
-Invierno: De Lunes a Viernes de 9:00 a 14:00 h y de 17:00 de 20:00 h, Sabados de 
-9:00 a 14:00 h.
-Verano: De Lunes a Viernes de 9:00 a 14:00h y de 17:30 a 20:00h, Sabados de 9:00
-a 14:00 h.
-Productos gastronómicos de una calidad excelente e inmejorable. Alardea de tener
-el mejor queso del mundo y las satas más jugosas.
+  Invierno: De Lunes a Viernes de 9:00 a 14:00 h y de 17:00 de 20:00 h, Sabados de 
+  9:00 a 14:00 h.
+  Verano: De Lunes a Viernes de 9:00 a 14:00h y de 17:30 a 20:00h, Sabados de 9:00
+  a 14:00 h.
+Productos gastronomicos de una calidad excelente e inmejorable. Alardea de tener
+el mejor queso del mundo y las satas mas jugosas.
 
 
