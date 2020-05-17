@@ -3,7 +3,7 @@
 #include<stdbool.h>
 
 void resenyas();
-char Min_May(char palabra[50]);
+int Min_May(char palabra[50]);
 void recomendacion();
 void estrellas(int num, FILE*fichero);
 
@@ -253,8 +253,7 @@ int main () {
 		case 7:
 			printf("Ha seleccionado la opcion de SALIR\n");
 			printf("Hasta pronto");
-			break;
-					
+			break;		
 	}
 }
 
@@ -284,14 +283,13 @@ void estrellas(int num, FILE*fichero){
 	fprintf(fichero,"PUNTUACION: %s", asteriscos);
 	fclose(fichero);
 }
-char Min_May(char palabra[50]){
+int Min_May(char palabra[50]){
 	int i=0;
 	for (i=0;palabra[i]!='\0';++i){
 		if(palabra[i]>='a' && palabra[i]<='z'){
 			palabra[i]=palabra[i]-32;
 		}
 	}
-	return palabra;
 }	
 void recomendacion(){
 	int recomendar, i, muy_recomendado=4, esta_bien=3, mejorable=2, no_recomendado=1;
