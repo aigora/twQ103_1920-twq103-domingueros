@@ -2,6 +2,16 @@
 #include <string.h>
 #include<stdbool.h>
 
+void resenyas();
+int Min_May(char palabra[50]);
+void recomendacion();
+void estrellas(int num, FILE*fichero);
+
+struct madrid{
+	char sitio[50];
+	char direccion[50];
+	char nivel[10];
+};
 struct datos{
 	char nombre[30];
 	char apellidos[100];
@@ -34,9 +44,10 @@ int main () {
 		printf("\n (1)-Iniciar sesion \n");
 		printf("\n (2)-Registrarse \n");
 		printf("\n (3)-Novedades de la semana\n");
-		printf("\n (4)-Todas las actividades\n");
-		printf("\n (5)-Informacion sobre la aplicacion\n");
-		printf("\n (6)-Salir de la aplicacion\n");
+		printf("\n (4)-Resenyas\n");
+		printf("\n (5)-Todas las actividades\n");
+		printf("\n (6)-Informacion sobre la aplicacion\n");
+		printf("\n (7)-Salir de la aplicacion\n");
 	
 		printf("\n Seleccinar opcion tecleandola en el ordenador el número asociado a la opcion a la que se desea acceder.\n");
 	
@@ -50,7 +61,7 @@ int main () {
 	
 	switch (opcion) {
 		case 1:
-			printf ("Ha seleccionado la opcion de INICIAR SESION\n");
+			printf("-----------------------INICIAR SESION-----------------------\n");
 			printf ("\n");
 			// HABRÁ QUE COMPROBARLO MÁS ADELANTE
 			do{
@@ -112,7 +123,7 @@ int main () {
 			printf("\nBienvenido de nuevo\n");
 			break;
 		case 2:
-			printf ("Ha seleccionado la opcion de REGISTRARSE\n");
+			printf("-----------------------CREAR CUENTA NUEVA-----------------------\n");
 			printf ("\n");
 			printf ("Complete con sus datos\n");
 			printf ("\n");
@@ -208,10 +219,19 @@ int main () {
 			
 			break;
 		case 3:
-			printf("Ha seleccionado la opcion de NOVEDADES DE LA SEMANA\n");
+			printf("-----------------------NOVEDADES DE LA SEMANA-----------------------\n");
+			printf("\n");
 			break;
 		case 4:
-			printf("Ha seleccionado la opcion de TODAS LAS ACTIVIDADES\n");
+			printf("-----------------------RESENYAS-----------------------\n");
+			printf("\n");
+			resenyas();
+			recomendacion();
+			break;
+		case 5:
+			printf("-----------------------TODAS LAS ACTIVIDADES-----------------------\n");
+			printf("\n");
+			printf("Esta son todas las actividades disponibles\n");
 			pfichero=fopen("actividades.txt","r");
 	
 			if(pfichero== NULL){
@@ -226,13 +246,112 @@ int main () {
 			}
 			fclose(pfichero);
 			break;
-		case 5:
-			printf("Ha seleccionado la opcion de INFORMACION SOBRE LA APLICACION\n");
-			break;
 		case 6:
+			printf("-----------------------INFORMACION SOBRE LA APLICACION-----------------------\n");
+			printf("\n");
+			break;
+		case 7:
 			printf("Ha seleccionado la opcion de SALIR\n");
 			printf("Hasta pronto");
 			break;
 					
+	}
+}
+
+void resenyas(){
+	char cadena[100];
+	FILE*pfichero;
+	
+		pfichero = fopen ("FICHERO_propuestas.txt", "r");
+								
+		if (pfichero != NULL) {
+			while ((fgets(cadena,sizeof (cadena), pfichero))!= NULL){
+				printf ("%s\n", cadena);
+			}
+		} else{
+			printf("No se encuentra el fichero\n");
+		}
+	fclose(pfichero);
+}
+
+void estrellas(int num, FILE*fichero){
+	int i;
+	char asteriscos[4];
+	for (i=0; i<=num; i++) {
+		asteriscos[i]='*';
+	}
+
+	fprintf(fichero,"PUNTUACION: %s", asteriscos);
+	fclose(fichero);
+}
+int Min_May(char palabra[50]){
+	int i=0;
+	for (i=0;palabra[i]!='\0';++i){
+		if(palabra[i]>='a' && palabra[i]<='z'){
+			palabra[i]=palabra[i]-32;
+		}
+	}
+}	
+void recomendacion(){
+	int recomendar, i, muy_recomendado=4, esta_bien=3, mejorable=2, no_recomendado=1;
+	char nombre[50],apellidos[50],cadena[100], E[4];
+	struct madrid viajero;
+	FILE*pfichero;
+	
+	printf("Para ESCRIBIR RECOMENDACION introduzca '1'. Despues debera escribir su nombre y apellidos\n");
+	printf("En caso contrario pulse 0\n");
+	scanf("%d", &recomendar);
+	if(recomendar == 1){
+		printf("Nombre:\n");
+		fflush(stdin);
+		gets(nombre);
+		printf("Apellidos:\n");
+		gets(apellidos);
+		strcat(nombre, " ");
+		strcat(nombre ,apellidos);
+		
+		pfichero = fopen ("FICHERO_propuestas.txt", "a+");
+	
+		if (pfichero != NULL) {
+			fprintf(pfichero, "- %s\n", nombre);
+		
+			printf("Introduzca SITIO DE MADRID visitado:");
+			gets(viajero.sitio);
+			Min_May(viajero.sitio);
+			printf("DIRECCION:");
+			gets(viajero.direccion);
+			Min_May(viajero.direccion);
+			printf("MUY RECOMENDADO/ESTA BIEN/'MEJORABLE/NO RECOMENDADO:");
+			gets(viajero.nivel);
+			Min_May(viajero.nivel);
+			printf("Describa su experiencia en 3 lineas de 100 caracteres cada una como maximo\n");
+			
+			fprintf(pfichero, "%s-%s-%s\n", viajero.sitio, viajero.direccion, viajero.nivel);
+			for (i=0; i <= 2; i++){
+				gets(cadena);
+				fprintf(pfichero, "%s\n", cadena);
+			}
+			
+			if(strcmp(viajero.nivel,"MUY RECOMENDADO")== 0){
+				estrellas(muy_recomendado, pfichero);
+			} if(strcmp(viajero.nivel,"ESTA BIEN")== 0){
+				estrellas(esta_bien, pfichero);
+			} if(strcmp(viajero.nivel,"MEJORABLE")== 0){
+				estrellas(mejorable, pfichero);
+			} if(strcmp(viajero.nivel,"NO RECOMENDADO")== 0){
+				estrellas(no_recomendado, pfichero);
+			} if((strcmp(viajero.nivel,"MUY RECOMENDADO")!= 0) && (strcmp(viajero.nivel,"ESTA BIEN")!= 0) && (strcmp(viajero.nivel,"MEJORABLE")!=0) && (strcmp(viajero.nivel,"NO RECOMENDADO")!= 0)){
+				fprintf(pfichero, "SIN PUNTUACION\n");
+			}
+			
+		} else{
+			printf("No se encuentra el fichero\n");
+		}
+		printf("\n");
+		fclose(pfichero);
+		
+		resenyas();
+	} else if(recomendar == 0){
+		printf("Hasta luego");
 	}
 }
