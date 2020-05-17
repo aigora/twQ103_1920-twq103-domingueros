@@ -43,9 +43,9 @@ int main () {
 		printf("\n MENU \n");
 		printf("\n (1)-Iniciar sesion \n");
 		printf("\n (2)-Registrarse \n");
-		printf("\n (3)-Novedades de la semana\n");
-		printf("\n (4)-Resenyas\n");
-		printf("\n (5)-Todas las actividades\n");
+		printf("\n (3)-Nuevos eventos de la semana\n");
+		printf("\n (4)-Todas las actividades\n");
+		printf("\n (5)-Resenyas\n");
 		printf("\n (6)-Informacion sobre la aplicacion\n");
 		printf("\n (7)-Salir de la aplicacion\n");
 	
@@ -223,12 +223,6 @@ int main () {
 			printf("\n");
 			break;
 		case 4:
-			printf("-----------------------RESENYAS-----------------------\n");
-			printf("\n");
-			resenyas();
-			recomendacion();
-			break;
-		case 5:
 			printf("-----------------------TODAS LAS ACTIVIDADES-----------------------\n");
 			printf("\n");
 			printf("Esta son todas las actividades disponibles:\n");
@@ -245,6 +239,12 @@ int main () {
 				nActividad++;
 			}
 			fclose(pfichero);
+			break;
+		case 5:
+			printf("-----------------------RESENYAS-----------------------\n");
+			printf("\n");
+			resenyas();
+			recomendacion();
 			break;
 		case 6:
 			printf("-----------------------INFORMACION SOBRE LA APLICACION-----------------------\n");
