@@ -231,7 +231,7 @@ int main () {
 		case 5:
 			printf("-----------------------TODAS LAS ACTIVIDADES-----------------------\n");
 			printf("\n");
-			printf("Esta son todas las actividades disponibles\n");
+			printf("Esta son todas las actividades disponibles:\n");
 			pfichero=fopen("actividades.txt","r");
 	
 			if(pfichero== NULL){
@@ -262,7 +262,7 @@ void resenyas(){
 	char cadena[100];
 	FILE*pfichero;
 	
-		pfichero = fopen ("FICHERO_propuestas.txt", "r");
+		pfichero = fopen ("RESEÑAS.txt", "r");
 								
 		if (pfichero != NULL) {
 			while ((fgets(cadena,sizeof (cadena), pfichero))!= NULL){
@@ -310,7 +310,7 @@ void recomendacion(){
 		strcat(nombre, " ");
 		strcat(nombre ,apellidos);
 		
-		pfichero = fopen ("FICHERO_propuestas.txt", "a+");
+		pfichero = fopen ("RESEÑAS.txt", "a+");
 	
 		if (pfichero != NULL) {
 			fprintf(pfichero, "- %s\n", nombre);
