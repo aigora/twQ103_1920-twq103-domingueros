@@ -10,7 +10,7 @@ void estrellas(int num, FILE*fichero);
 struct madrid{
 	char sitio[50];
 	char direccion[50];
-	char nivel[10];
+	char nivel[20];
 };
 struct datos{
 	char nombre[30];
@@ -276,11 +276,11 @@ void resenyas(){
 void estrellas(int num, FILE*fichero){
 	int i;
 	char asteriscos[4];
-	for (i=0; i<=num; i++) {
+	for (i=0; i<num; i++) {
 		asteriscos[i]='*';
 	}
 
-	fprintf(fichero,"PUNTUACION: %s", asteriscos);
+	fprintf(fichero,"PUNTUACION: %s\n", asteriscos);
 	fclose(fichero);
 }
 int Min_May(char palabra[50]){
