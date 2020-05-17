@@ -1,0 +1,16 @@
+MUSICAL (Teatro Alcala) 'Dirty Dancing' 60,00 Euros
+MUSICAL (Teatro Coliseum) 'Anastasia' 65,99 Euos 
+MUSICAL (Teatro Lope de Vega) 'El Rey Leon' 90,00 Euros
+MUSICAL (Teatro Rialto) 'La Jaula de las Locas' 68, 00 Euros
+COMEDIA (Teatro Rialto) 'Los Morancos' 70,00 Euros
+COMEDIA (Cines Callao) Goyo Jimenez 'Aiguantulivinamerica 2' 19,99 Euros
+COMEDIA (Teatro Figaro) 'Escape Room' 19,99 Euros
+COMEDIA (Teatro Gran Via) 'La madre que me pario' 21,00 Euros
+CONCIERTO (Joy Eslava) Nill Moliner 'Bailando en la batalla' 36,80 Euros
+CONCIERTO (Winzink Center) Efecto Pasillo 'Salvajes Irracionales' 20,00 Euros
+CONCIERTO (Wizink Center) Dani Martin 'Lo que me da la gana' 45,00 Euros
+CONCIERTO (Wizink Center) Pablo Lopez 'Gira Unikornio' 55,00 Euros
+FESTIVAL (IFEMA) Mad Cool Festival 2020 - Abono 3 dias 191,00 Euros
+FESTIVAL (Universad Complutense) Dcode Festival 49,00 Euros
+FESTIVAL (IFEMA) Madrid Salvaje 55,00 Euros
+FESTIVAL (IFEMA) Madrid Puro Reggaeton Festival 65,00 Euros
