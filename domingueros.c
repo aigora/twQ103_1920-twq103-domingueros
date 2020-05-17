@@ -35,7 +35,9 @@ int main () {
 	int cuentas = 0, longitud_ap = 0, longitud_con = 0;
 	char contrasena[20], apodo[20], email[100];
 	int nActividad=0;
+	int cont=1
 	FILE *pfichero;
+	FILE *nfichero;
 	
 	printf(" Bienvenido a DOMINGUEROS\n");
 	
@@ -221,6 +223,22 @@ int main () {
 		case 3:
 			printf("-----------------------NOVEDADES DE LA SEMANA-----------------------\n");
 			printf("\n");
+			printf("Hemos encontrado algunos CHOLLOS que puede que te interesen\n");
+			printf("Encontraras mas informacion de dichos eventos en las paginas oficiales correspondientes \n");
+			nfichero = fopen ("NOVEDADES_DELA_SEMANA.txt", "r");
+	
+			if (nfichero == NULL) {
+				printf("No se encuentra el fichero\n");
+				return 0;
+			}
+			printf("%d\n", rand()% 16+1); //numero = rand () % (N-M+1) + M; // esta entre m y n
+			while (((fgets(cadena, sizeof (cadena), nfichero))!= EOF) && cont==rand()% 16+1){
+				printf ("%s\n", cadena);
+			}
+			cont++;
+	
+			fclose(nfichero);
+			}
 			break;
 		case 4:
 			printf("-----------------------TODAS LAS ACTIVIDADES-----------------------\n");
