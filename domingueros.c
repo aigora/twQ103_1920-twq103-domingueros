@@ -1,6 +1,7 @@
-#include <stdio.h>
-#include <string.h>
-#include<stdbool.h>
+#include <stdio.h> // Librería estándar para manipular datos de entrada y salida
+#include <string.h> // Librería de manejo de cadenas
+#include<stdbool.h> // Librería del tipo booleano (estándar)
+#include <stdlib.h> // Librería de rutinas de conversión estándar
 
 void resenyas();
 int Min_May(char palabra[50]);
@@ -35,9 +36,11 @@ int main () {
 	int cuentas = 0, longitud_ap = 0, longitud_con = 0;
 	char contrasena[20], apodo[20], email[100];
 	int nActividad=0;
-	int cont=1
+	int cont=1, num; // Novedades
+	char cadena[80]; // Novedades
+	srand (time(NULL)); //Novedades
 	FILE *pfichero;
-	FILE *nfichero;
+	FILE *nfichero; // Novedades
 	
 	printf(" Bienvenido a DOMINGUEROS\n");
 	
@@ -225,20 +228,29 @@ int main () {
 			printf("\n");
 			printf("Hemos encontrado algunos CHOLLOS que puede que te interesen\n");
 			printf("Encontraras mas informacion de dichos eventos en las paginas oficiales correspondientes \n");
+	
 			nfichero = fopen ("NOVEDADES_DELA_SEMANA.txt", "r");
 	
 			if (nfichero == NULL) {
 				printf("No se encuentra el fichero\n");
 				return 0;
 			}
-			printf("%d\n", rand()% 16+1); //numero = rand () % (N-M+1) + M; // esta entre m y n
-			while (((fgets(cadena, sizeof (cadena), nfichero))!= EOF) && cont==rand()% 16+1){
-				printf ("%s\n", cadena);
-			}
-			cont++;
 	
-			fclose(nfichero);
+			num=rand()% 16+1; // Numero de linea aleatorio entre 1 y 16 = rand () % (N-M+1) + M
+			
+			// Recorremos el fichero línea a línea hasta el final del mismo, comparando si el contador de lineas, 'cont', es igual a un número aleatorio
+			// que obtenemos mediante la función rand(). Para ello incluímos la librería stdlib.h
+			while (((fgets(cadena, sizeof (cadena), nfichero))!= EOF) && cont){ 
+				if(cont==num){
+					printf ("%s\n", cadena);
+					break;
+				} else{
+					cont++;
+				}
 			}
+			
+			fclose(nfichero);
+			
 			break;
 		case 4:
 			printf("-----------------------TODAS LAS ACTIVIDADES-----------------------\n");
@@ -261,8 +273,8 @@ int main () {
 		case 5:
 			printf("-----------------------RESENYAS-----------------------\n");
 			printf("\n");
-			resenyas();
-			recomendacion();
+			resenyas(); // Función que muestran por pantalla las reseñas que han sido introducidas anteriormente
+			recomendacion(); // Función que permite introducir reseñas y mostrarlas todas de nuevo
 			break;
 		case 6:
 			printf("-----------------------INFORMACION SOBRE LA APLICACION-----------------------\n");
