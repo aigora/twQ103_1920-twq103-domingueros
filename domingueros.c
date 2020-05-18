@@ -240,7 +240,7 @@ int main () {
 			
 			// Recorremos el fichero línea a línea hasta el final del mismo, comparando si el contador de lineas, 'cont', es igual a un número aleatorio
 			// que obtenemos mediante la función rand(). Para ello incluímos la librería stdlib.h
-			while (((fgets(cadena, sizeof (cadena), nfichero))!= EOF) && cont){ 
+			while (((fgets(cadena, sizeof (cadena), nfichero))!= EOF)){ 
 				if(cont==num){
 					printf ("%s\n", cadena);
 					break;
