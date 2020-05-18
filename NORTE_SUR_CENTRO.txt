@@ -511,10 +511,10 @@ Horarios:
   SABADOS: 09:30 - 22:00
   DOMINGOS Y FESTIVOS: 09:30 - 15:00
 Tarifas:
-  ENTRADA GENERAL: 35€
-  ENTRADA INFANTIL: 25€
-  ENTRADA MAYORES DE 65: 27€
-  ENTRADA MATINAL: 27€
+  ENTRADA GENERAL: 35 Euros
+  ENTRADA INFANTIL: 25 Euros
+  ENTRADA MAYORES DE 65: 27 Euros
+  ENTRADA MATINAL: 27 Euros
   
  2-RUTAS POR LA SAGRA
  
@@ -537,9 +537,9 @@ Carretera A5 salida 22 y 25. 28939. Arroyomolinos. Madrid
 Tlf.: 91 648 22 44
 
 Tarifas:
-  ACCESO DE 2 HORAS: 25€
-  ACCESO DE 4 HORAS: 35€
-  ACCESO DÍA COMPLETO: 39€
+  ACCESO DE 2 HORAS: 25 Euros
+  ACCESO DE 4 HORAS: 35 Euros
+  ACCESO DÍA COMPLETO: 39 Euros
   
 4-PARQUE WARNER MADRID
 
@@ -552,9 +552,9 @@ de Hollywood y el barrio de Beverly Hills) o Nueva York.
 Carretera A-4, salida 22.
 
 Tarifas:
-  GENERAL: 32.90€
-  REDUCIDA: 29.90€
-  NIÑOS MENORES DE 1m: 0.00€
+  GENERAL: 32.90 Euros
+  REDUCIDA: 29.90 Euros
+  NIÑOS MENORES DE 1m: 0.00 Euros
 
 Horarios: consultar en la web.
 
@@ -570,7 +570,7 @@ A 30 km al SE de la capital, por la A-42 (Madrid-Toledo), salida 30 (Casarrubuel
 Km 2 de la M-417.
 
 Tarifas: 
-  ALQUILER+PARTIDA: 32€
+  ALQUILER+PARTIDA: 32 Euros
  
 2-TREPOPARK
 
@@ -581,15 +581,15 @@ Tlf.: 916486568
 
 -Rocodromo:
   Tarifas: 
-  ENTRADA GENERAL: 13€
+  ENTRADA GENERAL: 13 Euros
 -Laser Combat:
   A partir de 8 años.
   Tarifas: 
-  ENTRADA MEDIA HORA: 10€
+  ENTRADA MEDIA HORA: 10 Euros
 -Campo de futbol playa:
   Tarifas: 
-  ALQUILER 40 min: 40€ por grupo
+  ALQUILER 40 min: 40 Euros por grupo
 -Zona saltarín:
   Tarifas:
-  ENTRADA 10min: 3€
+  ENTRADA 10min: 3 Euros
   
