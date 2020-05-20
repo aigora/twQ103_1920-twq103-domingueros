@@ -37,7 +37,7 @@ int main () {
 	int cuentas = 0, longitud_con = 0; // Registrarse
 	char contrasena[20], email[100]; // Registrase
 	int nActividad=0;
-	int cont=1, num; // Novedades
+	int cont=1, num, maseventos, eventos=0; // Novedades
 	char cadena[80]; // Novedades
 	srand (time(NULL)); //Novedades
 	FILE *pfichero;
@@ -128,6 +128,7 @@ int main () {
 			no_cuenta = 0;
 			
 			printf("\nBienvenido de nuevo\n");
+			
 			break;
 		case 2:
 			printf("-----------------------CREAR CUENTA NUEVA-----------------------\n");
@@ -214,29 +215,45 @@ int main () {
 			printf("Hemos encontrado algunos CHOLLOS que puede que te interesen\n");
 			printf("Encontraras mas informacion de dichos eventos en las paginas oficiales correspondientes \n");
 			printf("\n");
-			
-			nfichero = fopen ("NOVEDADES_DELA_SEMANA.txt", "r");
+			printf("\nSi quieres continuar pulsa ENTER\n");
+			getch();
 	
-			if (nfichero == NULL) {
-				printf("No se encuentra el fichero\n");
-				return 0;
-			}
+			do{
+				nfichero = fopen ("NOVEDADES_DELA_SEMANA.txt", "r");
 	
-			num=rand()% 16+1; // Numero de linea aleatorio entre 1 y 16 = rand () % (N-M+1) + M
-			
-			// Recorremos el fichero línea a línea hasta el final del mismo, comparando si el contador de lineas, 'cont', es igual a un número aleatorio
-			// que obtenemos mediante la función rand(). [incluímos la librería stdlib.h]
-			while (((fgets(cadena, sizeof (cadena), nfichero))!= EOF)){ 
-				if(cont==num){
-					printf ("%s\n", cadena);
-					break;
-				} else{
-					cont++;
+				if (nfichero == NULL) {
+					printf("No se encuentra el fichero\n");
+					return 0;
 				}
-			}
-			
-			fclose(nfichero);
-			
+
+				num=rand()% 16+1; // Numero de linea aleatorio entre 1 y 16 = rand () % (N-M+1) + M
+		
+				// Recorremos el fichero línea a línea hasta el final del mismo, comparando si el contador de lineas, 'cont', es igual a un número aleatorio
+				// que obtenemos mediante la función rand(). [incluímos la librería stdlib.h]
+				while (((fgets(cadena, sizeof (cadena), nfichero))!= EOF)){
+					if(cont==num){
+						printf ("%s\n", cadena);
+						break;
+					} else{
+						cont++;
+					}
+				}
+				fclose(nfichero);
+	
+				printf("\n Si quiere ver otro evento pulse '1'. En caso contrario saldra de la pagina\n");
+				eventos++;
+				fflush(stdin);
+				scanf("%d", &maseventos);
+	
+				if(maseventos != 1 || eventos==3){
+					if(eventos==3){
+						printf("Hoy no hemos encontrado mas eventos para ti\n");
+					}
+					adios();
+				}
+	
+			}while (eventos<=3 && maseventos==1);
+
 			break;
 		case 4:
 			printf("-----------------------TODAS LAS ACTIVIDADES-----------------------\n");
@@ -255,6 +272,7 @@ int main () {
 				nActividad++;
 			}
 			fclose(pfichero);
+			       
 			break;
 		case 5:
 			printf("-----------------------RESENYAS-----------------------\n");
@@ -262,6 +280,7 @@ int main () {
 			printf("Estos son los ultimos comentarios de algunos domingueros\n");
 			resenyas(); // Función que muestran por pantalla las reseñas que han sido introducidas anteriormente
 			recomendacion(); // Función que permite introducir reseñas y mostrarlas todas de nuevo
+			
 			break;
 		case 6:
 			printf("-----------------------INFORMACION SOBRE LA APLICACION-----------------------\n");
@@ -269,9 +288,11 @@ int main () {
 			break;
 		case 7:
 			adios();
+			       
 			break;		
 	}
 }
+			       
 void adios(){
 	printf("Ha seleccionado la opcion de salir\n");
 	printf("\n");
