@@ -3,6 +3,7 @@
 #include<stdbool.h> // Librería del tipo booleano (estándar)
 #include <stdlib.h> // Librería de rutinas de conversión estándar
 
+void adios();
 int lineasFichero();
 void resenyas();
 int Min_May(char palabra[50]);
