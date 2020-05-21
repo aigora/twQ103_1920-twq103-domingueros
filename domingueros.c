@@ -227,7 +227,7 @@ int main () {
 		case 4:
 			printf("-----------------------TODAS LAS ACTIVIDADES-----------------------\n");
 			printf("\n");
-			printf("Esta son todas las actividades disponibles:\n");
+			printf("Estas son todas las actividades disponibles,para acceder al filtro de precio y zona, regístrese o inicie sesión.\n");
 			pfichero=fopen("actividades.txt","r");
 	
 			if(pfichero== NULL){
