@@ -3,6 +3,9 @@
 #include<stdbool.h> // Librería del tipo booleano (estándar)
 #include <stdlib.h> // Librería de rutinas de conversión estándar
 
+#define longLinea 200
+#define MAxUsuarios 50
+
 void adios();
 int lineasFichero();
 void resenyas();
@@ -27,6 +30,13 @@ struct TActividad{
 	char zona[100];
 	char actividad[100];
 };
+typedef struct usuarios {
+	char nombre[100];
+	char edad[4];
+	char contrasenna[50];
+	char correo[50];
+	char zona[30];
+} usuarios;
 	
 int main () {
 	struct datos usuarios[100]; // Registrarse - Iniciar sesión
@@ -41,6 +51,11 @@ int main () {
 	int cont=1, num, maseventos, eventos=0; // Novedades
 	char cadena[80]; // Novedades
 	srand (time(NULL)); //Novedades
+	struct usuarios usuario[MAxUsuarios];//Iniciar sesión
+	int numUsuarios;//Iniciar sesión//Iniciar sesión
+	cargaFichero(usuario, &numUsuarios);//Iniciar sesión
+	char correo[50], contrasenna[50];//Iniciar sesión
+	int salir;//Iniciar sesión
 	FILE *pfichero;
 	FILE *nfichero; // Novedades
 	FILE *ufichero; // Registrarse - Iniciar sesion
@@ -71,64 +86,17 @@ int main () {
 		case 1:
 			printf("-----------------------INICIAR SESION-----------------------\n");
 			printf ("\n");
-			// HABRÁ QUE COMPROBARLO MÁS ADELANTE
-			do{
-				printf ("Apodo:\n");
-				scanf ("%s", apodo);
-				printf ("Contraseña:\n");
-				scanf ("%s", contrasena);
-				
-				for (i=0; i<cuentas; i++){
-					if (usuarios[i].apodo != apodo || usuarios[i].contrasena != contrasena){
-						es_cuenta = false;
-						no_cuenta++;
-						printf ("No coincide con ninguna cuenta ya creada");
-					}else{
-						es_cuenta = true;
-					}
-				}
-				
-				if (no_cuenta == 3){
-					printf ("Necesita ayuda?");
-					printf ("\n");
-							
-					printf ("(1)-Volver a iniciar sesion. Teclee 1 para iniciar sesion\n");
-					printf ("(2)-No recuerda su contraseña. Teclee 2 si quiere recuperarla\n");
-					
-					scanf ("%d", &ayuda);
-							
-					switch (ayuda) {
-						case 1:
-							printf ("Ha escogido VOLVER A INICAR SESION\n");
-							printf ("\n");
-							break;
-						case 2:
-							printf ("Ha escogido RECUPERAR CONTRASEÑA\n");
-							printf ("\n");
-							
-							do {
-								printf("\nCorreo:\t");
-								scanf("%s", usuarios[cuentas].email);
-								
-								for (i=0; i<cuentas; i++){
-									if (usuarios[i].email == email){
-										printf ("Tu apodo es: %s\t", usuarios[i].apodo);
-										printf ("Tu contrasena es: %s\t", usuarios[i].contrasena);	
-									} else{
-										printf ("No coincide con ninguna cuenta ya creada\n");
-										no_email++;
-									}
-								}
-							} while (no_email<=5);
-							break;
-					}
-				}
-			} while (es_cuenta == false && no_cuenta<3 || no_email==5 || ayuda == 1);
 			
-			no_email = 0;
-			no_cuenta = 0;
+			do {
+				printf("\n Introduzca correo electronico: ");
+				scanf("%s", &correo);
+				printf("\n Introduzca contrasenna: ");
+				scanf("%s", &contrasenna);
+				salir=comprobar(correo, contrasenna, usuario, &numUsuarios); 
+				if (salir!=1) printf("\n Usuario o contrasenna incorrecto, introducir de nuevo" );
+			} while (salir!=1);
 			
-			printf("\nBienvenido de nuevo\n");
+			printf("\n correo y contrasena correctos, bienvenido \n");
 			
 			break;
 		case 2:
@@ -268,7 +236,7 @@ int main () {
 			}
 		
 			while (fscanf(pfichero, "%s %s ",actividad[nActividad].zona,
-			actividad[nActividad].actividad != EOF){
+			actividad[nActividad].actividad) != EOF){
 				printf("%s %s\n",actividad[nActividad].zona, actividad[nActividad].actividad);
 				nActividad++;
 			}
@@ -418,4 +386,61 @@ void recomendacion(){
 		adios();
 	}
 }
-			
+void cargaFichero (struct usuarios usuario[], int * num) { //Iniciar sesión
+	int numLineas = 0, i, j = 0, k = 0;
+	char linea[100][longLinea];
+	char edad[4];
+	FILE* fich;
+	char delim[] = "-";
+
+	fich = fopen("USUARIOS.txt", "r");
+	while (fgets(linea[numLineas], longLinea, (FILE*)fich)) {
+		//printf("LINEA: %s \n", linea[numLineas]);
+		numLineas++;
+	}
+	fclose(fich);
+	for (i = 0; i < numLineas; i++) {
+		do {
+			usuario[i].nombre[j++] = linea[i][k++];
+		} while (linea[i][k] != '-' && linea[i][k] != '\n');
+		usuario[i].nombre[--j] = '\0';
+		k += 2;
+		j = 0;
+		do {
+			usuario[i].edad[j++] = linea[i][k++];
+		} while (linea[i][k] != '-' && linea[i][k] != '\n');
+		usuario[i].edad[--j] = '\0';
+		k += 2;
+		j = 0;
+		do {
+			usuario[i].contrasenna[j++] = linea[i][k++];
+		} while (linea[i][k] != '-' && linea[i][k] != '\n');
+		usuario[i].contrasenna[--j] = '\0';
+		k += 2;
+		j = 0;
+		do {
+			usuario[i].correo[j++] = linea[i][k++];
+		} while (linea[i][k] != '-' && linea[i][k] != '\n');
+		usuario[i].correo[--j] = '\0';
+		k += 2;
+		j = 0;
+		do {
+			usuario[i].zona[j++] = linea[i][k++];
+		} while (linea[i][k] != '-' && linea[i][k] != '\n');
+		usuario[i].zona[--j] = '\0';
+		k = 0;
+		j = 0;
+	}
+	*num = numLineas;
+}
+
+int comprobar(char correo[50], char contrasenna[50], struct usuarios usuario[], int* num) {//Iniciar sesión
+	int i;
+	for (i = 0; i < (*num); i++) {
+		if (strcmp(correo, usuario[i].correo) == 0){
+			if (strcmp(contrasenna, usuario[i].contrasenna) == 0) return 1;
+		}
+	}
+	return 0;
+
+}			
