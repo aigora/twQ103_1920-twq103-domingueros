@@ -5,30 +5,27 @@
 
 #define longLinea 200
 #define MAxUsuarios 50
+#define MAxActividades 200
+#define FicheroUsuarios "USUARIOS.txt"
 
-void adios();
-int lineasFichero();
-void resenyas();
-int Min_May(char palabra[50]);
-void recomendacion();
-void estrellas(int num, FILE*fichero);
 
-struct madrid{
+typedef struct  zonas {
+	int orden;
+	char nombre[20];
+};
+
+typedef struct madrid{
 	char sitio[50];
 	char direccion[50];
 	char nivel[20];
 };
-struct datos{
+typedef struct datos{
 	char nombre[30];
 	char apellidos[100];
 	int edad;
 	char email[100];
 	char contrasena[20];
 	char lugar[30];
-};
-struct TActividad{
-	char zona[100];
-	char actividad[100];
 };
 typedef struct usuarios {
 	char nombre[100];
@@ -37,229 +34,104 @@ typedef struct usuarios {
 	char correo[50];
 	char zona[30];
 } usuarios;
-	
+typedef struct actividades {
+	char zona[20];
+	char nombre[50];
+	char precio[6];
+};
+
+void adios();
+int lineasFichero();
+void resenyas();
+int Min_May(char palabra[50]);
+void recomendacion();
+void estrellas(int num, FILE* fichero);
+void cargaFicheroActividades(struct actividades[], int*);
+void cargaFicheroUsuarios(struct usuarios[], int*);
+bool login();
+bool nuevoRegistro();
+bool comprobar(char[], char[], usuarios[], int*);
+void novedades();
+void pintarActividades();
+void menuzonas();
+
 int main () {
-	struct datos usuarios[100]; // Registrarse - Iniciar sesión
-	struct TActividad actividad[100];
-	int opcion, j; //Registrarse
-	int no_cuenta = 0, no_email = 0, ayuda, i;
-	bool punto = false, arroba = false; // Registrarse
-	bool es_cuenta = false, diferente = false;
-	int cuentas = 0, longitud_con = 0; // Registrarse
-	char contrasena[20], email[100]; // Registrase
-	int nActividad=0;
-	int cont=1, num, maseventos, eventos=0; // Novedades
-	char cadena[80]; // Novedades
-	srand (time(NULL)); //Novedades
-	struct usuarios usuario[MAxUsuarios];//Iniciar sesión
-	int numUsuarios;//Iniciar sesión//Iniciar sesión
-	cargaFichero(usuario, &numUsuarios);//Iniciar sesión
-	char correo[50], contrasenna[50];//Iniciar sesión
-	int salir;//Iniciar sesión
-	FILE *pfichero;
-	FILE *nfichero; // Novedades
-	FILE *ufichero; // Registrarse - Iniciar sesion
-	
+	bool registrado=false;
+	int opcion;
+
 	printf("\t********* Bienvenido a DOMINGUEROS *********\n");
 	
 	do{
+		//system("cls");
 		printf("\n MENU \n");
 		printf("\n (1)-Iniciar sesion \n");
 		printf("\n (2)-Registrarse \n");
 		printf("\n (3)-Nuevos eventos de la semana\n");
 		printf("\n (4)-Todas las actividades\n");
-		printf("\n (5)-Resenyas\n");
-		printf("\n (6)-Informacion sobre la aplicacion\n");
-		printf("\n (7)-Salir de la aplicacion\n");
+		printf("\n (5)-Actividades con filtro\n");
+		printf("\n (6)-Resenyas\n");
+		printf("\n (7)-Informacion sobre la aplicacion\n");
+		printf("\n (8)-Salir de la aplicacion\n");
 	
 		printf("\n Seleccinar opcion tecleando el numero asociado a la opcion a la que se desea acceder.\n");
 	
 		scanf("%d", &opcion);
 	
-		if ( opcion != 1 && opcion != 2 && opcion != 3 && opcion != 4 && opcion != 5 && opcion != 6){
+		if ( opcion != 1 && opcion != 2 && opcion != 3 && opcion != 4 && opcion != 5 && opcion != 6 && opcion != 7 && opcion != 8){
 			printf ("No se ha introducido un numero adecuado");
 		}
+		else {
 
-	} while ( opcion != 1 && opcion != 2 && opcion != 3 && opcion != 4 && opcion != 5 && opcion != 6);
-	
-	switch (opcion) {
-		case 1:
-			printf("-----------------------INICIAR SESION-----------------------\n");
-			printf ("\n");
-			
-			do {
-				printf("\n Introduzca correo electronico: ");
-				scanf("%s", &correo);
-				printf("\n Introduzca contrasenna: ");
-				scanf("%s", &contrasenna);
-				salir=comprobar(correo, contrasenna, usuario, &numUsuarios); 
-				if (salir!=1) printf("\n Usuario o contrasenna incorrecto, introducir de nuevo" );
-			} while (salir!=1);
-			
-			printf("\n correo y contrasena correctos, bienvenido \n");
-			
-			break;
-		case 2:
-			printf("-----------------------CREAR CUENTA NUEVA-----------------------\n");
-			printf ("\n");
-			printf ("Complete con sus datos\n");
-			printf ("\n");
-			
-			do {
-				printf ("Nombre:\t");
-				fflush (stdin);
-				gets (usuarios[0].nombre);
-				printf ("\nApellidos:\t");
-				gets (usuarios[0].apellidos);
+			switch (opcion) {
+			case 1:
+				printf("-----------------------INICIAR SESION-----------------------\n");
+				printf("\n");
+				registrado=login();
+				break;
+			case 2:
+				printf("-----------------------CREAR CUENTA NUEVA-----------------------\n");
+				printf("\n");
+				registrado=nuevoRegistro();
+				break;
+			case 3:
+				printf("----------------------------NOVEDADES---------------------------\n");
+				printf("\n");
+				if (registrado) novedades();
+				else printf("\n Tiene que estar registrado para acceder a esta información \n");
+				break;
+			case 4:
+				printf("------------------------TODAS LAS ACTIVIDADES----------------------\n");
+				printf("\n");
+				if (registrado) pintarActividades();
+				else printf("\n Tiene que estar registrado para acceder a esta información \n");
+				break;
+			case 5:
+				printf("------------------------ACTIVIDADES CON FILTRO----------------------\n");
+				printf("\n");
+				if (registrado) MenuZonasPrecio();
+				else printf("\n Tiene que estar registrado para acceder a esta información \n");
+				break;			
+			case 6:
+				printf("-------------------------------RESENYAS----------------------------\n");
+				printf("\n");
+				printf("Estos son los ultimos comentarios de algunos domingueros\n");
+				resenyas(); // Función que muestran por pantalla las reseñas que han sido introducidas anteriormente
+				recomendacion(); // Función que permite introducir reseñas y mostrarlas todas de nuevo
 
-				if (usuarios[0].nombre[0] == '\0' || usuarios[0].apellidos[0] == '\0'){
-					printf ("ERROR. Debe completar adecuadamente con sus datos todos los campos\n");
-				}
-	
-			} while (usuarios[0].nombre[0] == '\0' || usuarios[0].apellidos[0] == '\0');
-			
-			strcat(usuarios[0].nombre, " ");
-			strcat(usuarios[0].nombre, usuarios[0].apellidos);
-			
-			printf ("\nEdad:\t");
-			scanf ("%d", &usuarios[0].edad);
-			
-			do {
-				printf("\nCorreo:\t");
-				scanf("%s", usuarios[0].email);
-					
-				for (j=0; usuarios[0].email[j]!= '\0';j++){
-						
-					if (usuarios[0].email[j] == '@'){
-						arroba = true;
-					}
-					if (usuarios[0].email[j] == '.'){
-						punto = true;
-					}
-				}
-					
-				if (arroba == false || punto == false){
-						printf ("El correo introducido no es valido\n");
-						arroba = false;
-						punto = false;
-				}
-					
-			} while (arroba == false || punto == false);
-			
-			do{
-				printf ("\nContrasena:\t");
-				scanf ("%s", usuarios[0].contrasena);
-				longitud_con = strlen(usuarios[0].contrasena);
-				
-				if (usuarios[0].contrasena[0] == '\0'){ /////////////////////////////////////////////////////////NO SALE
-					printf ("\nERROR. Debe completar adecuadamente con sus datos todos los campos\n");
-				}
-				if (longitud_con < 8){
-					printf ("\nTu contrasena es demasiado corta. Minimo 8 caracteres\n");
-				}
-			} while (longitud_con < 8 || usuarios[0].contrasena[0] == '\0');
-			
-			printf ("\nLugar de residencia en la Comunidad de Madrid (o provincia):\t");
-			scanf ("%s", usuarios[0].lugar);	
-			
-			ufichero = fopen("USUARIOS.txt", "a+");
-			
-			if (ufichero == NULL) {
-				printf("No se encuentra el fichero\n");
-			}
-			
-			fprintf(ufichero, "%s - %d - %s - %s - %s\n", usuarios[0].nombre, usuarios[0].edad, usuarios[0].contrasena, usuarios[0].email, usuarios[0].lugar);
-			fclose(ufichero);
-			
-			cuentas = lineasFichero();
-			
-			printf("Cuenta creada con exito\n");
-			printf("Gracias %s por unirte a esta gran familia de viajeros\n", usuarios[0].nombre);
-			printf("Ya somos %d domingueros!\n", cuentas);	
-
-			break;
-		case 3:
-			printf("-----------------------NOVEDADES DE LA SEMANA-----------------------\n");
-			printf("\n");
-			printf("Hemos encontrado algunos CHOLLOS que puede que te interesen\n");
-			printf("Encontraras mas informacion de dichos eventos en las paginas oficiales correspondientes \n");
-			printf("\n");
-			printf("\nSi quieres continuar pulsa ENTER\n");
-			getch();
-	
-			do{
-				nfichero = fopen ("NOVEDADES_DELA_SEMANA.txt", "r");
-	
-				if (nfichero == NULL) {
-					printf("No se encuentra el fichero\n");
-					return 0;
-				}
-
-				num=rand()% 16+1; // Numero de linea aleatorio entre 1 y 16 = rand () % (N-M+1) + M
-		
-				// Recorremos el fichero línea a línea hasta el final del mismo, comparando si el contador de lineas, 'cont', es igual a un número aleatorio
-				// que obtenemos mediante la función rand(). [incluímos la librería stdlib.h]
-				while (((fgets(cadena, sizeof (cadena), nfichero))!= EOF)){
-					if(cont==num){
-						printf ("%s\n", cadena);
-						break;
-					} else{
-						cont++;
-					}
-				}
-				fclose(nfichero);
-	
-				printf("\n Si quiere ver otro evento pulse '1'. En caso contrario saldra de la pagina\n");
-				eventos++;
-				fflush(stdin);
-				scanf("%d", &maseventos);
-	
-				if(maseventos != 1 || eventos==3){
-					if(eventos==3){
-						printf("Hoy no hemos encontrado mas eventos para ti\n");
-					}
-					adios();
-				}
-	
-			}while (eventos<=3 && maseventos==1);
-
-			break;
-		case 4:
-			printf("-----------------------TODAS LAS ACTIVIDADES-----------------------\n");
-			printf("\n");
-			printf("Estas son todas las actividades disponibles,para acceder al filtro de precio y zona, regístrese o inicie sesión.\n");
-			pfichero=fopen("actividades.txt","r");
-	
-			if(pfichero== NULL){
-				printf("No se encuentra el fichero\n");
+				break;
+			case 7:
+				printf("-----------------------INFORMACION SOBRE LA APLICACION-----------------------\n");
+				printf("\n");
+				break;
+			case 8:
+				adios();
 				return 0;
+				break;
 			}
-		
-			while (fscanf(pfichero, "%s %s ",actividad[nActividad].zona,
-			actividad[nActividad].actividad) != EOF){
-				printf("%s %s\n",actividad[nActividad].zona, actividad[nActividad].actividad);
-				nActividad++;
-			}
-			fclose(pfichero);
-			       
-			break;
-		case 5:
-			printf("-----------------------RESENYAS-----------------------\n");
-			printf("\n");
-			printf("Estos son los ultimos comentarios de algunos domingueros\n");
-			resenyas(); // Función que muestran por pantalla las reseñas que han sido introducidas anteriormente
-			recomendacion(); // Función que permite introducir reseñas y mostrarlas todas de nuevo
-			
-			break;
-		case 6:
-			printf("-----------------------INFORMACION SOBRE LA APLICACION-----------------------\n");
-			printf("\n");
-			break;
-		case 7:
-			adios();
-			       
-			break;		
-	}
+		}
+
+	} while (true);
+	
 }
 			       
 void adios(){
@@ -386,14 +258,43 @@ void recomendacion(){
 		adios();
 	}
 }
-void cargaFichero (struct usuarios usuario[], int * num) { //Iniciar sesión
+
+bool login() {
+	struct usuarios usuario[MAxUsuarios];
+	int numUsuarios;
+	cargaFicheroUsuarios(usuario, &numUsuarios);
+	char correo[50], contrasenna[50];
+	bool registrado;
+	do {
+		printf("\n Introduzca correo electrnico: ");
+		scanf("%s", &correo);
+		printf("\n Introduzca contrasenna: ");
+		scanf("%s", &contrasenna);
+		registrado = comprobar(correo, contrasenna, usuario, &numUsuarios);
+		if (registrado != true) printf("\n Usuario o contrasenna incorrecto, introducir de nuevo");
+	} while (registrado != true);
+	printf("\n correo y contrasena correctos, bienvenido \n");
+	return true;
+}
+
+bool comprobar(char correo[50], char contrasenna[50], struct usuarios usuario[], int* num) {
+	int i;
+	for (i = 0; i < (*num); i++) {
+		if (strcmp(correo, usuario[i].correo) == 0) {
+			if (strcmp(contrasenna, usuario[i].contrasenna) == 0) return true;
+		}
+	}
+	return false;
+
+}
+
+void cargaFicheroUsuarios(struct usuarios usuario[], int* num) {
 	int numLineas = 0, i, j = 0, k = 0;
-	char linea[100][longLinea];
-	char edad[4];
+	char linea[MAxUsuarios][longLinea];
 	FILE* fich;
 	char delim[] = "-";
 
-	fich = fopen("USUARIOS.txt", "r");
+	fich = fopen(FicheroUsuarios, "r");
 	while (fgets(linea[numLineas], longLinea, (FILE*)fich)) {
 		//printf("LINEA: %s \n", linea[numLineas]);
 		numLineas++;
@@ -434,13 +335,252 @@ void cargaFichero (struct usuarios usuario[], int * num) { //Iniciar sesión
 	*num = numLineas;
 }
 
-int comprobar(char correo[50], char contrasenna[50], struct usuarios usuario[], int* num) {//Iniciar sesión
-	int i;
-	for (i = 0; i < (*num); i++) {
-		if (strcmp(correo, usuario[i].correo) == 0){
-			if (strcmp(contrasenna, usuario[i].contrasenna) == 0) return 1;
-		}
+void filtrarZona(char nombreZona[20]) {
+	struct actividades actividad[MAxActividades];
+	int numActividades, i;
+	cargaFicheroActividades(actividad, &numActividades);
+	for (i = 0; i < numActividades; i++) {
+		if (strcmp(actividad[i].zona, nombreZona) == 0) printf("Actividad: %s , Precio: %s \n", actividad[i].nombre, actividad[i].precio);
 	}
-	return 0;
+}
 
-}			
+void filtrarPrecio(int nPrecio) {
+	char precio[6];
+	sprintf(precio, "%d", nPrecio);
+	struct actividades actividad[MAxActividades];
+	int numActividades, i;
+	cargaFicheroActividades(actividad, &numActividades);
+	for (i = 0; i < numActividades; i++) {
+		if (strcmp(actividad[i].precio, precio) == 0) printf("Actividad: %s , Precio: %s \n", actividad[i].nombre, actividad[i].precio);
+	}
+}
+
+void cargaFicheroActividades(struct actividades actividad[], int* num) {
+	int numLineas = 0, i, j = 0, k = 0;
+	char linea[MAxActividades][longLinea];
+	FILE* fich;
+	char delim = 32;
+
+	fich = fopen("actividadesprecio.txt", "r");
+	while (fgets(linea[numLineas], longLinea, (FILE*)fich)) {
+		//printf("LINEA: %s \n", linea[numLineas]);
+		numLineas++;
+	}
+	fclose(fich);
+	for (i = 0; i < numLineas; i++) {
+		do {
+			actividad[i].zona[j++] = linea[i][k++];
+		} while (linea[i][k] != delim && linea[i][k] != '\n');
+		actividad[i].zona[j] = '\0';
+		k++;
+		j = 0;
+		do {
+			actividad[i].nombre[j++] = linea[i][k++];
+		} while (linea[i][k] != delim && linea[i][k] != '\n');
+		actividad[i].nombre[j] = '\0';
+		k++;
+		j = 0;
+		do {
+			actividad[i].precio[j++] = linea[i][k++];
+		} while (linea[i][k] != delim && linea[i][k] != '\n');
+		actividad[i].precio[j] = '\0';
+		k = 0;
+		j = 0;
+	}
+	*num = numLineas;
+}
+
+int MenuZonasPrecio() {
+
+	char eleccion[50];
+		int precio;
+	do {
+		printf("\n Menú \n");
+		printf("1 - Filtro de Zona\n");
+		printf("2 - Filtro de precio \n");
+		printf("3 - Volver al menu anterior \n");
+		scanf(" %s", &eleccion);
+		if (eleccion[0]=='1' && strlen(eleccion)==1) {
+			menuzonas();
+		}
+		if (eleccion[0] == '2' && strlen(eleccion) == 1) {
+			printf("\n Introduzca precio de referencia: \n");
+			scanf("%d", &precio);
+			filtrarPrecio(precio);
+		}
+		if (eleccion[0] == '3' && strlen(eleccion) == 1) {
+			return 0;
+		}
+	} while (!(eleccion[0] > 0 && eleccion[0] < 3 && strlen(eleccion)==1));
+	return 0;
+}
+
+void menuzonas() {
+	char eleccion[50];
+	int i,numero;
+	struct zonas zona[5] = { {1,"Noreste"},{2,"Noroeste"},{3,"Madridcentro"},{4,"Madridsur"} };
+	
+		printf("\n Elija zona \n");
+	for (i = 0; i < 4; i++) {
+		printf("%i %s \n", zona[i].orden, zona[i].nombre);
+	}
+	do {
+		scanf(" %s", &eleccion);
+		if (eleccion[0] > '0' && eleccion[0] < '5' && strlen(eleccion)==1) {
+			numero = (int)eleccion[0] - (int)48;
+			filtrarZona(zona[numero].nombre);
+		}
+		else {
+			printf("\n Seleccione una zona valida (1..4) \n");
+		}
+	} while (!(eleccion[0] > '0' && eleccion[0] < '5' && strlen(eleccion)==1));
+}
+
+bool nuevoRegistro() {
+	struct usuarios usuario[MAxUsuarios];//Iniciar sesión
+	int numUsuarios;//Iniciar sesión//Iniciar sesión
+	FILE* ufichero; // Registrarse - Iniciar sesion
+	bool punto = false, arroba = false; // Registrarse
+	bool es_cuenta = false, diferente = false;
+	int cuentas = 0, longitud_con = 0, edad = 0; // Registrarse
+	char apellidos[30];
+	int  j; //Registrarse 
+
+	printf("Complete con sus datos\n");
+	printf("\n");
+
+	do {
+		printf("Nombre:\t");
+		fflush(stdin);
+		gets(usuario[0].nombre);
+		printf("\nApellidos:\t");
+		gets(apellidos);
+
+		if (usuario[0].nombre[0] == '\0' || apellidos[0] == '\0') {
+			printf("ERROR. Debe completar adecuadamente con sus datos todos los campos\n");
+		}
+
+	} while (usuario[0].nombre[0] == '\0' || apellidos[0] == '\0');
+
+	strcat(usuario[0].nombre, " ");
+	strcat(usuario[0].nombre, apellidos);
+
+	printf("\nEdad:\t");
+	scanf("%d", &edad);
+	sprintf(usuario[0].edad, "%d", edad);
+
+	do {
+		printf("\nCorreo:\t");
+		scanf("%s", usuario[0].correo);
+
+		for (j = 0; usuario[0].correo[j] != '\0'; j++) {
+
+			if (usuario[0].correo[j] == '@') {
+				arroba = true;
+			}
+			if (usuario[0].correo[j] == '.') {
+				punto = true;
+			}
+		}
+
+		if (arroba == false || punto == false) {
+			printf("El correo introducido no es valido\n");
+			arroba = false;
+			punto = false;
+		}
+
+	} while (arroba == false || punto == false);
+
+	do {
+		printf("\nContrasena:\t");
+		scanf("%s", usuario[0].contrasenna);
+		longitud_con = strlen(usuario[0].contrasenna);
+
+		if (usuario[0].contrasenna[0] == '\0') { /////////////////////////////////////////////////////////NO SALE
+			printf("\nERROR. Debe completar adecuadamente con sus datos todos los campos\n");
+		}
+		if (longitud_con < 8) {
+			printf("\nTu contrasena es demasiado corta. Minimo 8 caracteres\n");
+		}
+	} while (longitud_con < 8 || usuario[0].contrasenna[0] == '\0');
+
+	printf("\nLugar de residencia en la Comunidad de Madrid (o provincia):\t");
+	scanf("%s", usuario[0].zona );
+
+	ufichero = fopen(FicheroUsuarios, "a+");
+
+	if (ufichero == NULL) {
+		printf("No se encuentra el fichero\n");
+	}
+
+	fprintf(ufichero, "%s - %d - %s - %s - %s\n", usuario[0].nombre, usuario[0].edad, usuario[0].contrasenna, usuario[0].correo, usuario[0].zona);
+	fclose(ufichero);
+
+	cuentas = lineasFichero();
+
+	printf("Cuenta creada con exito\n");
+	printf("Gracias %s por unirte a esta gran familia de viajeros\n", usuario[0].nombre);
+	printf("Ya somos %d domingueros!\n", cuentas);
+	return true;
+}
+
+void novedades(){
+	FILE* nfichero; // Novedades
+	int cont = 1, num, maseventos, eventos = 0; // Novedades
+	char cadena[80]; // Novedades
+	srand(time(NULL)); //Novedades
+
+
+				printf("Hemos encontrado algunos CHOLLOS que puede que te interesen\n");
+				printf("Encontraras mas informacion de dichos eventos en las paginas oficiales correspondientes \n");
+				printf("\n");
+				printf("\nSi quieres continuar pulsa ENTER\n");
+				getch();
+
+				do {
+					nfichero = fopen("NOVEDADES_DELA_SEMANA.txt", "r");
+
+					if (nfichero == NULL) {
+						printf("No se encuentra el fichero\n");
+						return 0;
+					}
+
+					num = rand() % 16 + 1; // Numero de linea aleatorio entre 1 y 16 = rand () % (N-M+1) + M
+
+					// Recorremos el fichero línea a línea hasta el final del mismo, comparando si el contador de lineas, 'cont', es igual a un número aleatorio
+					// que obtenemos mediante la función rand(). [incluímos la librería stdlib.h]
+					while (((fgets(cadena, sizeof(cadena), nfichero)) != EOF)) {
+						if (cont == num) {
+							printf("%s\n", cadena);
+							break;
+						}
+						else {
+							cont++;
+						}
+					}
+					fclose(nfichero);
+
+					printf("\n Si quiere ver otro evento pulse '1'. En caso contrario saldra de la pagina\n");
+					eventos++;
+					fflush(stdin);
+					scanf("%d", &maseventos);
+
+					if (maseventos != 1 || eventos == 3) {
+						if (eventos == 3) {
+							printf("Hoy no hemos encontrado mas eventos para ti\n");
+						}
+						adios();
+					}
+
+				} while (eventos <= 3 && maseventos == 1);
+}
+
+void pintarActividades() {
+	struct actividades actividad[MAxActividades];
+	int numActividades, i;
+	cargaFicheroActividades(actividad, &numActividades);
+	for (i = 0; i < numActividades; i++) {
+		printf("Actividad: %s , Zona: %s \n", actividad[i].nombre, actividad[i].zona);
+	}
+
+}
