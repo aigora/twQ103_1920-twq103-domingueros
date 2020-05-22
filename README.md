@@ -1,6 +1,6 @@
 # Domingueros
 
-Es una aplicación en las que puedes consultar lugares y encontrar actividades que se adapten a los gustos de la gente, en la comunidad de Madrid.
+Es una aplicación turística en la que puedes consultar lugares y encontrar actividades que se adapten a los gustos de la gente, en la comunidad de Madrid.
 
 ## Integrantes del equipo
 
