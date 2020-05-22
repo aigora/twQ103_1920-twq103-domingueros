@@ -435,7 +435,7 @@ void menuzonas() {
 		scanf(" %s", &eleccion);
 		if (eleccion[0] > '0' && eleccion[0] < '5' && strlen(eleccion) == 1) {
 			numero = (int)eleccion[0] - (int)48;
-			filtrarZona(zona[numero].nombre);
+			filtrarZona(zona[numero-1].nombre);
 		}
 		else {
 			printf("\n Seleccione una zona valida (1..4) \n");
