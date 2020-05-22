@@ -14,12 +14,12 @@ typedef struct  zonas {
 	char nombre[20];
 };
 
-typedef struct madrid{
+typedef struct madrid {
 	char sitio[50];
 	char direccion[50];
 	char nivel[20];
 };
-typedef struct datos{
+typedef struct datos {
 	char nombre[30];
 	char apellidos[100];
 	int edad;
@@ -55,43 +55,51 @@ void novedades();
 void pintarActividades();
 void menuzonas();
 
-int main () {
-	bool registrado=false;
+int main() {
+	bool registrado = false;
 	int opcion;
 
 	printf("\t********* Bienvenido a DOMINGUEROS *********\n");
-	
-	do{
+
+	do {
 		//system("cls");
+		
 		printf("\n MENU \n");
-		printf("\n (1)-Iniciar sesion \n");
-		printf("\n (2)-Registrarse \n");
+		if(registrado) {
+		printf("-Usuario registrado-\n");
+		}else {
+			printf("\n (1)-Iniciar sesion \n");
+			printf("\n (2)-Registrarse \n");
+		}
 		printf("\n (3)-Nuevos eventos de la semana\n");
 		printf("\n (4)-Todas las actividades\n");
 		printf("\n (5)-Actividades con filtro\n");
 		printf("\n (6)-Resenyas\n");
-		printf("\n (7)-Informacion sobre la aplicacion\n");
-		printf("\n (8)-Salir de la aplicacion\n");
-	
+		printf("\n (7)-Salir de la aplicacion\n");
+
 		printf("\n Seleccinar opcion tecleando el numero asociado a la opcion a la que se desea acceder.\n");
-	
+
 		scanf("%d", &opcion);
-	
-		if ( opcion != 1 && opcion != 2 && opcion != 3 && opcion != 4 && opcion != 5 && opcion != 6 && opcion != 7 && opcion != 8){
-			printf ("No se ha introducido un numero adecuado");
+
+		if (opcion != 1 && opcion != 2 && opcion != 3 && opcion != 4 && opcion != 5 && opcion != 6 && opcion != 7 ) {
+			printf("No se ha introducido un numero adecuado");
 		}
 		else {
 
 			switch (opcion) {
 			case 1:
-				printf("-----------------------INICIAR SESION-----------------------\n");
-				printf("\n");
-				registrado=login();
+				if (!registrado) {
+					printf("-----------------------INICIAR SESION-----------------------\n");
+					printf("\n");
+					if (!registrado) registrado = login();
+				}
 				break;
 			case 2:
-				printf("-----------------------CREAR CUENTA NUEVA-----------------------\n");
-				printf("\n");
-				registrado=nuevoRegistro();
+				if (!registrado) {
+					printf("-----------------------CREAR CUENTA NUEVA-----------------------\n");
+					printf("\n");
+					registrado = nuevoRegistro();
+				}
 				break;
 			case 3:
 				printf("----------------------------NOVEDADES---------------------------\n");
@@ -110,7 +118,7 @@ int main () {
 				printf("\n");
 				if (registrado) MenuZonasPrecio();
 				else printf("\n Tiene que estar registrado para acceder a esta información \n");
-				break;			
+				break;
 			case 6:
 				printf("-------------------------------RESENYAS----------------------------\n");
 				printf("\n");
@@ -120,10 +128,6 @@ int main () {
 
 				break;
 			case 7:
-				printf("-----------------------INFORMACION SOBRE LA APLICACION-----------------------\n");
-				printf("\n");
-				break;
-			case 8:
 				adios();
 				return 0;
 				break;
@@ -131,93 +135,94 @@ int main () {
 		}
 
 	} while (true);
-	
+
 }
-			       
-void adios(){
+
+void adios() {
 	printf("Ha seleccionado la opcion de salir\n");
 	printf("\n");
 	printf("\t******** Hasta pronto DOMINGUERO ********");
 }
-			       
-int lineasFichero(){
-	int cont=0;
+
+int lineasFichero() {
+	int cont = 0;
 	int num_lineas = 0;
-	FILE *ufichero;
-	
-	if ((ufichero = fopen("USUARIOS.txt", "r")) == NULL){
-    	perror("USUARIOS.txt");
-      	printf("Error");
-   }	
-   while ((cont = fgetc(ufichero)) != EOF){
-   		if (cont == '\n'){
-   			num_lineas++;
-		}	
-   }
-   fclose(ufichero);
-   
+	FILE* ufichero;
+
+	if ((ufichero = fopen("USUARIOS.txt", "r")) == NULL) {
+		perror("USUARIOS.txt");
+		printf("Error");
+	}
+	while ((cont = fgetc(ufichero)) != EOF) {
+		if (cont == '\n') {
+			num_lineas++;
+		}
+	}
+	fclose(ufichero);
+
 	return num_lineas;
 }
 
-void resenyas(){
+void resenyas() {
 	char cadena[100];
-	FILE*pfichero;
-	
-		pfichero = fopen ("RESEÑAS.txt", "r");
-								
-		if (pfichero != NULL) {
-			while ((fgets(cadena,sizeof (cadena), pfichero))!= NULL){
-				printf ("%s\n", cadena);
-			}
-		} else{
-			printf("No se encuentra el fichero\n");
+	FILE* pfichero;
+
+	pfichero = fopen("RESEÑAS.txt", "r");
+
+	if (pfichero != NULL) {
+		while ((fgets(cadena, sizeof(cadena), pfichero)) != NULL) {
+			printf("%s\n", cadena);
 		}
+	}
+	else {
+		printf("No se encuentra el fichero\n");
+	}
 	fclose(pfichero);
 }
 
-void estrellas(int num, FILE*fichero){
+void estrellas(int num, FILE* fichero) {
 	int i;
 	char asteriscos[4];
-	for (i=0; i<num; i++) {
-		asteriscos[i]='*';
+	for (i = 0; i < num; i++) {
+		asteriscos[i] = '*';
 	}
 
-	fprintf(fichero,"PUNTUACION: %s\n", asteriscos);
+	fprintf(fichero, "PUNTUACION: %s\n", asteriscos);
 	fclose(fichero);
 }
-			       
-int Min_May(char palabra[50]){
-	int i=0;
-	for (i=0;palabra[i]!='\0';++i){
-		if(palabra[i]>='a' && palabra[i]<='z'){
-			palabra[i]=palabra[i]-32;
+
+int Min_May(char palabra[50]) {
+	int i = 0;
+	for (i = 0; palabra[i] != '\0'; ++i) {
+		if (palabra[i] >= 'a' && palabra[i] <= 'z') {
+			palabra[i] = palabra[i] - 32;
 		}
 	}
 }
-			       
-void recomendacion(){
-	int recomendar, i, muy_recomendado=4, esta_bien=3, mejorable=2, no_recomendado=1;
-	char nombre[50],apellidos[50],cadena[100];
+
+void recomendacion() {
+	int recomendar, i, muy_recomendado = 4, esta_bien = 3, mejorable = 2, no_recomendado = 1;
+	char nombre[50], apellidos[50], cadena[100];
 	struct madrid viajero;
-	FILE*pfichero;
-	
+	FILE* pfichero;
+
 	printf("Para ESCRIBIR RECOMENDACION introduzca '1'. Despues debera escribir su nombre y apellidos\n");
 	printf("En caso contrario pulse 0 para  SALIR\n");
 	scanf("%d", &recomendar);
-	if(recomendar == 1){
+	if (recomendar == 1) {
 		printf("Nombre:\n");
 		fflush(stdin);
 		gets(nombre);
 		printf("Apellidos:\n");
 		gets(apellidos);
 		strcat(nombre, " ");
-		strcat(nombre ,apellidos);
-		
-		pfichero = fopen ("RESEÑAS.txt", "a+");
-	
+		strcat(nombre, apellidos);
+
+		pfichero = fopen("RESEÑAS.txt", "a+");
+
 		if (pfichero != NULL) {
 			fprintf(pfichero, "- %s\n", nombre);
-		
+
 			printf("Introduzca SITIO DE MADRID visitado:");
 			gets(viajero.sitio);
 			Min_May(viajero.sitio);
@@ -228,33 +233,35 @@ void recomendacion(){
 			gets(viajero.nivel);
 			Min_May(viajero.nivel);
 			printf("Describa su experiencia en 3 lineas de 100 caracteres cada una como maximo\n");
-			
+
 			fprintf(pfichero, "%s-%s-%s\n", viajero.sitio, viajero.direccion, viajero.nivel);
-			for (i=0; i <= 2; i++){
+			for (i = 0; i <= 2; i++) {
 				gets(cadena);
 				fprintf(pfichero, "%s\n", cadena);
 			}
-			
-			if(strcmp(viajero.nivel,"MUY RECOMENDADO")== 0){
+
+			if (strcmp(viajero.nivel, "MUY RECOMENDADO") == 0) {
 				estrellas(muy_recomendado, pfichero);
-			} if(strcmp(viajero.nivel,"ESTA BIEN")== 0){
+			} if (strcmp(viajero.nivel, "ESTA BIEN") == 0) {
 				estrellas(esta_bien, pfichero);
-			} if(strcmp(viajero.nivel,"MEJORABLE")== 0){
+			} if (strcmp(viajero.nivel, "MEJORABLE") == 0) {
 				estrellas(mejorable, pfichero);
-			} if(strcmp(viajero.nivel,"NO RECOMENDADO")== 0){
+			} if (strcmp(viajero.nivel, "NO RECOMENDADO") == 0) {
 				estrellas(no_recomendado, pfichero);
-			} if((strcmp(viajero.nivel,"MUY RECOMENDADO")!= 0) && (strcmp(viajero.nivel,"ESTA BIEN")!= 0) && (strcmp(viajero.nivel,"MEJORABLE")!=0) && (strcmp(viajero.nivel,"NO RECOMENDADO")!= 0)){
+			} if ((strcmp(viajero.nivel, "MUY RECOMENDADO") != 0) && (strcmp(viajero.nivel, "ESTA BIEN") != 0) && (strcmp(viajero.nivel, "MEJORABLE") != 0) && (strcmp(viajero.nivel, "NO RECOMENDADO") != 0)) {
 				fprintf(pfichero, "SIN PUNTUACION\n");
 			}
-			
-		} else{
+
+		}
+		else {
 			printf("No se encuentra el fichero\n");
 		}
 		printf("\n");
 		fclose(pfichero);
-		
+
 		resenyas();
-	} else if(recomendar == 0){
+	}
+	else if (recomendar == 0) {
 		adios();
 	}
 }
@@ -393,14 +400,14 @@ void cargaFicheroActividades(struct actividades actividad[], int* num) {
 int MenuZonasPrecio() {
 
 	char eleccion[50];
-		int precio;
+	int precio;
 	do {
 		printf("\n Menú \n");
 		printf("1 - Filtro de Zona\n");
 		printf("2 - Filtro de precio \n");
 		printf("3 - Volver al menu anterior \n");
 		scanf(" %s", &eleccion);
-		if (eleccion[0]=='1' && strlen(eleccion)==1) {
+		if (eleccion[0] == '1' && strlen(eleccion) == 1) {
 			menuzonas();
 		}
 		if (eleccion[0] == '2' && strlen(eleccion) == 1) {
@@ -411,29 +418,29 @@ int MenuZonasPrecio() {
 		if (eleccion[0] == '3' && strlen(eleccion) == 1) {
 			return 0;
 		}
-	} while (!(eleccion[0] > 0 && eleccion[0] < 3 && strlen(eleccion)==1));
+	} while (!(eleccion[0] > 0 && eleccion[0] < 3 && strlen(eleccion) == 1));
 	return 0;
 }
 
 void menuzonas() {
 	char eleccion[50];
-	int i,numero;
+	int i, numero;
 	struct zonas zona[5] = { {1,"Noreste"},{2,"Noroeste"},{3,"Madridcentro"},{4,"Madridsur"} };
-	
-		printf("\n Elija zona \n");
+
+	printf("\n Elija zona \n");
 	for (i = 0; i < 4; i++) {
 		printf("%i %s \n", zona[i].orden, zona[i].nombre);
 	}
 	do {
 		scanf(" %s", &eleccion);
-		if (eleccion[0] > '0' && eleccion[0] < '5' && strlen(eleccion)==1) {
+		if (eleccion[0] > '0' && eleccion[0] < '5' && strlen(eleccion) == 1) {
 			numero = (int)eleccion[0] - (int)48;
 			filtrarZona(zona[numero].nombre);
 		}
 		else {
 			printf("\n Seleccione una zona valida (1..4) \n");
 		}
-	} while (!(eleccion[0] > '0' && eleccion[0] < '5' && strlen(eleccion)==1));
+	} while (!(eleccion[0] > '0' && eleccion[0] < '5' && strlen(eleccion) == 1));
 }
 
 bool nuevoRegistro() {
@@ -505,7 +512,7 @@ bool nuevoRegistro() {
 	} while (longitud_con < 8 || usuario[0].contrasenna[0] == '\0');
 
 	printf("\nLugar de residencia en la Comunidad de Madrid (o provincia):\t");
-	scanf("%s", usuario[0].zona );
+	scanf("%s", usuario[0].zona);
 
 	ufichero = fopen(FicheroUsuarios, "a+");
 
@@ -524,55 +531,55 @@ bool nuevoRegistro() {
 	return true;
 }
 
-void novedades(){
+void novedades() {
 	FILE* nfichero; // Novedades
 	int cont = 1, num, maseventos, eventos = 0; // Novedades
 	char cadena[80]; // Novedades
 	srand(time(NULL)); //Novedades
 
 
-				printf("Hemos encontrado algunos CHOLLOS que puede que te interesen\n");
-				printf("Encontraras mas informacion de dichos eventos en las paginas oficiales correspondientes \n");
-				printf("\n");
-				printf("\nSi quieres continuar pulsa ENTER\n");
-				getch();
+	printf("Hemos encontrado algunos CHOLLOS que puede que te interesen\n");
+	printf("Encontraras mas informacion de dichos eventos en las paginas oficiales correspondientes \n");
+	printf("\n");
+	printf("\nSi quieres continuar pulsa ENTER\n");
+	getch();
 
-				do {
-					nfichero = fopen("NOVEDADES_DELA_SEMANA.txt", "r");
+	do {
+		nfichero = fopen("NOVEDADES_DELA_SEMANA.txt", "r");
 
-					if (nfichero == NULL) {
-						printf("No se encuentra el fichero\n");
-						return 0;
-					}
+		if (nfichero == NULL) {
+			printf("No se encuentra el fichero\n");
+			return 0;
+		}
 
-					num = rand() % 16 + 1; // Numero de linea aleatorio entre 1 y 16 = rand () % (N-M+1) + M
+		num = rand() % 16 + 1; // Numero de linea aleatorio entre 1 y 16 = rand () % (N-M+1) + M
 
-					// Recorremos el fichero línea a línea hasta el final del mismo, comparando si el contador de lineas, 'cont', es igual a un número aleatorio
-					// que obtenemos mediante la función rand(). [incluímos la librería stdlib.h]
-					while (((fgets(cadena, sizeof(cadena), nfichero)) != EOF)) {
-						if (cont == num) {
-							printf("%s\n", cadena);
-							break;
-						}
-						else {
-							cont++;
-						}
-					}
-					fclose(nfichero);
+		// Recorremos el fichero línea a línea hasta el final del mismo, comparando si el contador de lineas, 'cont', es igual a un número aleatorio
+		// que obtenemos mediante la función rand(). [incluímos la librería stdlib.h]
+		while (((fgets(cadena, sizeof(cadena), nfichero)) != EOF)) {
+			if (cont == num) {
+				printf("%s\n", cadena);
+				break;
+			}
+			else {
+				cont++;
+			}
+		}
+		fclose(nfichero);
 
-					printf("\n Si quiere ver otro evento pulse '1'. En caso contrario saldra de la pagina\n");
-					eventos++;
-					fflush(stdin);
-					scanf("%d", &maseventos);
+		printf("\n Si quiere ver otro evento pulse '1'. En caso contrario saldra de la pagina\n");
+		eventos++;
+		fflush(stdin);
+		scanf("%d", &maseventos);
 
-					if (maseventos != 1 || eventos == 3) {
-						if (eventos == 3) {
-							printf("Hoy no hemos encontrado mas eventos para ti\n");
-						}
-						adios();
-					}
+		if (maseventos != 1 || eventos == 3) {
+			if (eventos == 3) {
+				printf("Hoy no hemos encontrado mas eventos para ti\n");
+			}
+			adios();
+		}
 
-				} while (eventos <= 3 && maseventos == 1);
+	} while (eventos <= 3 && maseventos == 1);
 }
 
 void pintarActividades() {
