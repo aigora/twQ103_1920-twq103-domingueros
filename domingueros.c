@@ -402,7 +402,7 @@ int MenuZonasPrecio() {
 	char eleccion[50];
 	int precio;
 	do {
-		printf("\n Menú \n");
+		printf("\n Menu \n");
 		printf("1 - Filtro de Zona\n");
 		printf("2 - Filtro de precio \n");
 		printf("3 - Volver al menu anterior \n");
