@@ -574,9 +574,11 @@ void novedades() {
 		printf("\n Si quiere ver otro evento pulse '1'. En caso contrario saldra de la pagina\n");
 		fflush(stdin);
 		scanf("%d", &maseventos);
-	
+		printf("\n");
+		
 		if(maseventos == 1 && eventos==2){
 			printf("Hoy no hemos encontrado mas eventos para ti\n");
+			printf("\n");
 		}
 	
 	}while (eventos<2 && maseventos==1);
