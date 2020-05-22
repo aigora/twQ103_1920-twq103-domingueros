@@ -543,6 +543,7 @@ void novedades() {
 	printf("\n");
 	printf("\nSi quieres continuar pulsa ENTER\n");
 	getch();
+	printf("\n");
 
 	do {
 		nfichero = fopen("NOVEDADES_DELA_SEMANA.txt", "r");
@@ -567,19 +568,20 @@ void novedades() {
 		}
 		fclose(nfichero);
 
-		printf("\n Si quiere ver otro evento pulse '1'. En caso contrario saldra de la pagina\n");
+		maseventos = 0;
 		eventos++;
+		
+		printf("\n Si quiere ver otro evento pulse '1'. En caso contrario saldra de la pagina\n");
 		fflush(stdin);
 		scanf("%d", &maseventos);
-
-		if (maseventos != 1 || eventos == 3) {
-			if (eventos == 3) {
-				printf("Hoy no hemos encontrado mas eventos para ti\n");
-			}
-			adios();
+	
+		if(maseventos == 1 && eventos==2){
+			printf("Hoy no hemos encontrado mas eventos para ti\n");
 		}
-
-	} while (eventos <= 3 && maseventos == 1);
+	
+	}while (eventos<2 && maseventos==1);
+	
+	adios();
 }
 
 void pintarActividades() {
