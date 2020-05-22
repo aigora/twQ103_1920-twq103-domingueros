@@ -62,15 +62,18 @@ int main() {
 	printf("\t********* Bienvenido a DOMINGUEROS *********\n");
 
 	do {
-		//system("cls");
-		
+		//system("cls"); 
+		// Esta función resetea la pantalla, es decir, no se acumulan las acciones, pero al imprimir líneas del fichero en la
+		// pantalla se borraban instantáneamente; asi que no lo hemos incluido en el codigo porque no hemos sabido solucionar ese problema
 		printf("\n MENU \n");
+		
 		if(registrado) {
-		printf("-Usuario registrado-\n");
+			printf("-Usuario registrado-\n");
 		}else {
 			printf("\n (1)-Iniciar sesion \n");
 			printf("\n (2)-Registrarse \n");
-		}
+		} //Una vez iniciada la sesión ya no se mostrarán estas opciones
+		
 		printf("\n (3)-Nuevos eventos de la semana\n");
 		printf("\n (4)-Todas las actividades\n");
 		printf("\n (5)-Actividades con filtro\n");
@@ -85,7 +88,7 @@ int main() {
 			printf("No se ha introducido un numero adecuado");
 		}
 		else {
-
+			//Para simplificar el menu hemos organizado las opciones en funciones 
 			switch (opcion) {
 			case 1:
 				if (!registrado) {
