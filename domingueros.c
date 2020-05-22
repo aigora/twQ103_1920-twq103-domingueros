@@ -126,8 +126,8 @@ int main() {
 				printf("-------------------------------RESENYAS----------------------------\n");
 				printf("\n");
 				printf("Estos son los ultimos comentarios de algunos domingueros\n");
-				resenyas(); // Función que muestran por pantalla las reseñas que han sido introducidas anteriormente
-				recomendacion(); // Función que permite introducir reseñas y mostrarlas todas de nuevo
+				resenyas();
+				recomendacion();
 
 				break;
 			case 7:
@@ -141,13 +141,13 @@ int main() {
 
 }
 
-void adios() {
+void adios() { 
 	printf("Ha seleccionado la opcion de salir\n");
 	printf("\n");
 	printf("\t******** Hasta pronto DOMINGUERO ********");
 }
 
-int lineasFichero() {
+int lineasFichero() { // Función que cuenta las líneas del fichero USUARIOS.txt. Se emplea en la opción de iniciar sesión
 	int cont = 0;
 	int num_lineas = 0;
 	FILE* ufichero;
@@ -166,7 +166,7 @@ int lineasFichero() {
 	return num_lineas;
 }
 
-void resenyas() {
+void resenyas() { // Función que muestran por pantalla las reseñas que han sido introducidas por otros usuarios
 	char cadena[100];
 	FILE* pfichero;
 
@@ -183,7 +183,8 @@ void resenyas() {
 	fclose(pfichero);
 }
 
-void estrellas(int num, FILE* fichero) {
+void estrellas(int num, FILE* fichero) { // Función que muestra el número estrellas de acuerdo a la satisfacción del usuario
+					//Empleada en la opcion de reseñas
 	int i;
 	char asteriscos[4];
 	for (i = 0; i < num; i++) {
@@ -194,7 +195,7 @@ void estrellas(int num, FILE* fichero) {
 	fclose(fichero);
 }
 
-int Min_May(char palabra[50]) {
+int Min_May(char palabra[50]) { // Función que convierte letras de minúsculas a mayúsculas. Empleada en la opción de reseñas
 	int i = 0;
 	for (i = 0; palabra[i] != '\0'; ++i) {
 		if (palabra[i] >= 'a' && palabra[i] <= 'z') {
@@ -203,7 +204,7 @@ int Min_May(char palabra[50]) {
 	}
 }
 
-void recomendacion() {
+void recomendacion() { // Función que permite introducir reseñas y mostrarlas todas de nuevo
 	int recomendar, i, muy_recomendado = 4, esta_bien = 3, mejorable = 2, no_recomendado = 1;
 	char nombre[50], apellidos[50], cadena[100];
 	struct madrid viajero;
@@ -212,6 +213,7 @@ void recomendacion() {
 	printf("Para ESCRIBIR RECOMENDACION introduzca '1'. Despues debera escribir su nombre y apellidos\n");
 	printf("En caso contrario pulse 0 para  SALIR\n");
 	scanf("%d", &recomendar);
+	
 	if (recomendar == 1) {
 		printf("Nombre:\n");
 		fflush(stdin);
@@ -238,6 +240,7 @@ void recomendacion() {
 			printf("Describa su experiencia en 3 lineas de 100 caracteres cada una como maximo\n");
 
 			fprintf(pfichero, "%s-%s-%s\n", viajero.sitio, viajero.direccion, viajero.nivel);
+			
 			for (i = 0; i <= 2; i++) {
 				gets(cadena);
 				fprintf(pfichero, "%s\n", cadena);
@@ -259,6 +262,7 @@ void recomendacion() {
 		else {
 			printf("No se encuentra el fichero\n");
 		}
+		
 		printf("\n");
 		fclose(pfichero);
 
@@ -269,7 +273,7 @@ void recomendacion() {
 	}
 }
 
-bool login() {
+bool login() { // Función utilizada para iniciar sesión
 	struct usuarios usuario[MAxUsuarios];
 	int numUsuarios;
 	cargaFicheroUsuarios(usuario, &numUsuarios);
@@ -287,7 +291,8 @@ bool login() {
 	return true;
 }
 
-bool comprobar(char correo[50], char contrasenna[50], struct usuarios usuario[], int* num) {
+bool comprobar(char correo[50], char contrasenna[50], struct usuarios usuario[], int* num) { 
+	// Función para comprobar si un correo y una contraseña coincide con una cuenta ya creada. Empleada en la opción de iniciar sesión
 	int i;
 	for (i = 0; i < (*num); i++) {
 		if (strcmp(correo, usuario[i].correo) == 0) {
@@ -295,10 +300,10 @@ bool comprobar(char correo[50], char contrasenna[50], struct usuarios usuario[],
 		}
 	}
 	return false;
-
 }
 
-void cargaFicheroUsuarios(struct usuarios usuario[], int* num) {
+void cargaFicheroUsuarios(struct usuarios usuario[], int* num) { // Función para analizar el fichero USUARIOS.txt. 
+						// Convierte el fichero en una matriz para después imprimir únicamente un determinado dato
 	int numLineas = 0, i, j = 0, k = 0;
 	char linea[MAxUsuarios][longLinea];
 	FILE* fich;
@@ -310,34 +315,40 @@ void cargaFicheroUsuarios(struct usuarios usuario[], int* num) {
 		numLineas++;
 	}
 	fclose(fich);
+	
 	for (i = 0; i < numLineas; i++) {
 		do {
 			usuario[i].nombre[j++] = linea[i][k++];
 		} while (linea[i][k] != '-' && linea[i][k] != '\n');
+		
 		usuario[i].nombre[--j] = '\0';
 		k += 2;
 		j = 0;
 		do {
 			usuario[i].edad[j++] = linea[i][k++];
 		} while (linea[i][k] != '-' && linea[i][k] != '\n');
+		
 		usuario[i].edad[--j] = '\0';
 		k += 2;
 		j = 0;
 		do {
 			usuario[i].contrasenna[j++] = linea[i][k++];
 		} while (linea[i][k] != '-' && linea[i][k] != '\n');
+		
 		usuario[i].contrasenna[--j] = '\0';
 		k += 2;
 		j = 0;
 		do {
 			usuario[i].correo[j++] = linea[i][k++];
 		} while (linea[i][k] != '-' && linea[i][k] != '\n');
+		
 		usuario[i].correo[--j] = '\0';
 		k += 2;
 		j = 0;
 		do {
 			usuario[i].zona[j++] = linea[i][k++];
 		} while (linea[i][k] != '-' && linea[i][k] != '\n');
+		
 		usuario[i].zona[--j] = '\0';
 		k = 0;
 		j = 0;
@@ -345,7 +356,7 @@ void cargaFicheroUsuarios(struct usuarios usuario[], int* num) {
 	*num = numLineas;
 }
 
-void filtrarZona(char nombreZona[20]) {
+void filtrarZona(char nombreZona[20]) { //Función que busca la zona introducida en el fichero de actividadesprecio.txt e imprime las coincidencias
 	struct actividades actividad[MAxActividades];
 	int numActividades, i;
 	cargaFicheroActividades(actividad, &numActividades);
@@ -354,7 +365,7 @@ void filtrarZona(char nombreZona[20]) {
 	}
 }
 
-void filtrarPrecio(int nPrecio) {
+void filtrarPrecio(int nPrecio) { //Función que busca el precio introducido en el fichero de actividadesprecio.txt e imprime las coincidencias
 	char precio[6];
 	sprintf(precio, "%d", nPrecio);
 	struct actividades actividad[MAxActividades];
@@ -365,7 +376,8 @@ void filtrarPrecio(int nPrecio) {
 	}
 }
 
-void cargaFicheroActividades(struct actividades actividad[], int* num) {
+void cargaFicheroActividades(struct actividades actividad[], int* num) { // Función para analizar el fichero actividadesprecio.txt. 
+						// Convierte el fichero en una matriz para después imprimir únicamente un determinado dato
 	int numLineas = 0, i, j = 0, k = 0;
 	char linea[MAxActividades][longLinea];
 	FILE* fich;
@@ -400,7 +412,7 @@ void cargaFicheroActividades(struct actividades actividad[], int* num) {
 	*num = numLineas;
 }
 
-int MenuZonasPrecio() {
+int MenuZonasPrecio() { // Función que combina los filtros de zona y precio. Empleada en la opción de actividades con filtro
 
 	char eleccion[50];
 	int precio;
@@ -410,6 +422,7 @@ int MenuZonasPrecio() {
 		printf("2 - Filtro de precio \n");
 		printf("3 - Volver al menu anterior \n");
 		scanf(" %s", &eleccion);
+		
 		if (eleccion[0] == '1' && strlen(eleccion) == 1) {
 			menuzonas();
 		}
@@ -421,11 +434,12 @@ int MenuZonasPrecio() {
 		if (eleccion[0] == '3' && strlen(eleccion) == 1) {
 			return 0;
 		}
+		
 	} while (!(eleccion[0] > 0 && eleccion[0] < 3 && strlen(eleccion) == 1));
 	return 0;
 }
 
-void menuzonas() {
+void menuzonas() { // Función del menu que accede al filtro de zonas
 	char eleccion[50];
 	int i, numero;
 	struct zonas zona[5] = { {1,"Noreste"},{2,"Noroeste"},{3,"Madridcentro"},{4,"Madridsur"} };
@@ -446,7 +460,7 @@ void menuzonas() {
 	} while (!(eleccion[0] > '0' && eleccion[0] < '5' && strlen(eleccion) == 1));
 }
 
-bool nuevoRegistro() {
+bool nuevoRegistro() { // Función que permite al usuario registrarse
 	struct usuarios usuario[MAxUsuarios];//Iniciar sesión
 	int numUsuarios;//Iniciar sesión//Iniciar sesión
 	FILE* ufichero; // Registrarse - Iniciar sesion
@@ -506,7 +520,7 @@ bool nuevoRegistro() {
 		scanf("%s", usuario[0].contrasenna);
 		longitud_con = strlen(usuario[0].contrasenna);
 
-		if (usuario[0].contrasenna[0] == '\0') { /////////////////////////////////////////////////////////NO SALE
+		if (usuario[0].contrasenna[0] == '\0') {
 			printf("\nERROR. Debe completar adecuadamente con sus datos todos los campos\n");
 		}
 		if (longitud_con < 8) {
@@ -534,7 +548,7 @@ bool nuevoRegistro() {
 	return true;
 }
 
-void novedades() {
+void novedades() { // Función que muestra novedades aleatoriamente del fichero NOVEDADES_DELA_SEMANA.txt
 	FILE* nfichero; // Novedades
 	int cont = 1, num, maseventos, eventos = 0; // Novedades
 	char cadena[80]; // Novedades
@@ -589,7 +603,7 @@ void novedades() {
 	adios();
 }
 
-void pintarActividades() {
+void pintarActividades() { // Función que imprime por pantalla las actividades al elegir la opción de todas las actividades
 	struct actividades actividad[MAxActividades];
 	int numActividades, i;
 	cargaFicheroActividades(actividad, &numActividades);
